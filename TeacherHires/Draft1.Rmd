@@ -1,0 +1,287 @@
+---
+title: "Final Case Studies"
+author: "Pei Tao"
+date: "12/6/2017"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+It's a well known rumor in the job market that there is age discrimination against job seekers; it's said that for most jobs, employers are more keen to hire younger workers as they can work at the company longer as they have more of their career ahead of them, an older and more experience candidate are sometimes considered to be more of an expense as they may request a higher starting salary, and depending on the industry, there is the perception that older workers are actually less capable and less qualified than their younger counterparts due to lack of up-to-date knownledge. 
+
+Regardless of if someone believes in the validity of those statements, employment discrimination, where a job-seeker or an employee is treated unfavorably because of his or her race, skin color, national origin, gender, gender identity, disability, religion, sexual orientation or age, is illegal. 
+
+Thus when an older female applied for a job as a teacher (she is considered older as she's 40 or older) believes she was not hired because of her age, it is imperative that we find out if the school discriminated her due to her age. The school, on the otherhand, denies the charges, saying that any apparent differences, if present, might be explained by other characteristics of the applicants.
+
+
+
+```{r, include=FALSE}
+hires <- read.csv("TeacherHires.csv",as.is=TRUE)
+
+hires[hires == "N/A"] <- NA
+hires[hires == " N/A"] <- NA
+
+for (ii in 1:length(hires$appdate)){
+  # interviewed
+  if(grepl("yes",hires$interviewed[ii])){
+    hires$interviewed[ii] <- "yes"
+  }
+  # hired
+  if (grepl("yes", hires$hired[ii])){
+    hires$hired[ii] <- "yes"
+  }
+  # experience
+  if(grepl("month",hires$experience[ii])){
+    experienceMonths <- as.numeric(gsub("([0-9]+).*$", "\\1", hires$experience[ii]))
+    hires$experience[ii] <- experienceMonths/12
+  }
+  if(grepl("years",hires$experience[ii])){
+    hires$experience[ii] <- as.numeric(gsub("([0-9]+).*$", "\\1", hires$experience[ii]))
+  }
+  # hired into 0 and 1
+  if (hires$hired[ii] == "yes"){
+    hires$hired_01[ii] <- 1
+  }
+  if (hires$hired[ii] == "no"){
+    hires$hired_01[ii] <- 0
+  }
+  # interviewed into 0 and 1
+  if (hires$interviewed[ii] == "yes"){
+    hires$interviewed_01[ii] <- 1
+  }
+  if (hires$interviewed[ii] == "no"){
+    hires$interviewed_01[ii] <- 0
+  }
+}
+hires$experience <- as.numeric(hires$experience)
+
+
+# appdate
+appdate <- strsplit(hires$appdate,"/")
+appyear <- rep(NA, length(appdate))
+appmonth <- rep(NA, length(appdate))
+for (ii in 1:length(appdate)){
+  appyear[ii] <- appdate[[ii]][3]
+  appmonth[ii] <- appdate[[ii]][1]
+}
+appyear[which(appyear == 2004)] <- "04"
+hires$appyear <- appyear
+hires$appmonth <- appmonth
+hires$appmonth_abrv <- month.abb[as.numeric(appmonth)]
+
+# GPAs
+hires$GPA.u <- as.numeric(hires$GPA.u)
+hires$GPA.g <- as.numeric(hires$GPA.g)
+hires[which(hires$GPA.g > 4.5),]$GPA.g <- NA
+
+# MA
+hires[which(grepl("yes",hires$MA)),]$MA <- "yes"
+
+# substitute
+hires[which(grepl("no",hires$substitute)),]$substitute <- "no"
+
+# teaching
+hires[which(grepl("yes",hires$teaching)),]$teaching <- "yes"
+
+# workkids
+hires[which(grepl("no",hires$workkids)),]$workkids <- "no"
+
+# residence
+hires$residence <- factor(hires$residence)
+
+hires <- hires[which(!is.na(hires$interviewed) & !is.na(hires$hired) & !is.na(hires$age)),]
+```
+
+## Data Processing
+
+Most of the data cleaning was to clean out the inconsistencies in the words and the "N/A" that litter the dataset. Many of the variables have an extra space after several of the "yes" and "no"s, such as in ```interviewed```, ```hired```, ```GPA```, ```MA```, ```substitute```, ```teaching```, ```workkids```, and ```residence```, which we replaced, and the "N/A"s were replaced with "NA".
+
+I also seperated the ```appdate``` into seperate months and years so that it would be useable information in potential linear models. 
+
+Since we are very interested in those who are hired, and their age, I also removed the applicants who have value of NA for ```interviewed```, ```hired```, and ```age```.
+
+Finally, I added two columns. One is called ```hired_01```, where hired is represented as $1$ and not hired is represented as $0$. This will allow us to make regressions later on what affects who is ```hired```. The other is ```interviewed_01```, where $1$ represents yes and $0$ also represents no.
+
+## Analysis
+
+First, let's look at the mean of the ages of those applicants who are hired versus those who are not hired.
+
+```{r}
+boxplot(age ~ hired, data=hires, 
+        xlab = "Hired Status", ylab = "Age", main = "Age of Applicants")
+mean(hires[which(hires$hired == "yes"),]$age)
+mean(hires[which(hires$hired == "no"),]$age)
+```
+
+The mean age of those who are hired is $30.070424$ and the mean age of those who are not hired is $32.90964$. This is a difference of almost three years. It seems prudent to test if the different in mean ages is siginificant.
+
+
+$$H_0 = \text{Mean age of applicants who are hired is the same as those who were not hired}$$
+$$H_a = \text{Mean age of the two groups is not the same}$$
+
+
+```{r, echo=FALSE}
+par(mfrow=c(2,1))
+hist(hires[which(hires$hired == "yes"),]$age, 
+     main="Histogram of Ages of Hired Applicants", xlab = "Age")
+hist(hires[which(hires$hired == "no"),]$age, 
+     main="Histogram of Ages of Not Hired Applicants", xlab = "Age")
+```
+
+Looking at the histograms of the ages, we see that the ages of the applicants are not normally distributed. Thus instead of doing a t-test, we will perform a permutation test.
+
+```{r}
+YEShired_age <- hires[which(hires$hired == "yes"),]$age
+NOhired_age <- hires[which(hires$hired == "no"),]$age
+test_statistic <- mean(YEShired_age) - mean(NOhired_age)
+allages <- c(YEShired_age, NOhired_age)
+totlength <- length(YEShired_age) + length(NOhired_age)
+N <- 5000
+permutate <- rep(0,N)
+for (ii in 1:N){
+  sample <- sample(allages,totlength,replace=F)
+  yes_mean <- mean(sample[1:length(YEShired_age)])
+  no_mean <- mean(sample[(length(YEShired_age)+1):totlength])
+  permutate[ii] <- yes_mean - no_mean
+}
+pvalue_permute <- length(which(test_statistic > permutate))/N
+```
+
+The p-value we get from this permutation test hovers around $0.01$, which is below our alpha level of $0.05$. So far, it seems that age may play a factor in the hiring of teachers at this school.
+
+```{r, echo=FALSE}
+hist(permutate, 
+     main = "Difference of Mean Ages of Permutations of Hired and Not Hired", 
+     xlab = "Sample Mean Age Difference")
+abline(v = test_statistic, col="red")
+```
+
+Looking closely at the data, it can be seen that only those who are interviewed have the chance to be hired. My next step was to see that given the applicant is interviewed, is there still an age bias in the hiring process.
+
+$$H_0 = \text{Mean age of applicants who are interviewed and hired is the same as those who are interviewed but not hired.}$$
+$$H_a = \text{Mean ages are different.}$$
+
+
+```{r}
+interview_hired <- hires[which(hires$interviewed == "yes" & hires$hired == "yes"),]
+interview_nothired <- hires[which(hires$interviewed == "yes" & hires$hired == "no"),]
+test_statistic_ih <- mean(interview_hired$age) - mean(interview_nothired$age)
+allages_ih <- c(interview_hired$age, interview_nothired$age)
+totlength_ih <- length(interview_hired$age) + length(interview_nothired$age)
+N_ih <- 5000
+permutate_ih <- rep(0,N_ih)
+for (ii in 1:N_ih){
+  sample_ih <- sample(allages_ih,totlength_ih,replace=F)
+  yes_mean <- mean(sample_ih[1:length(interview_hired$age)])
+  no_mean <- mean(sample_ih[(length(interview_hired$age)+1):totlength_ih])
+  permutate_ih[ii] <- yes_mean - no_mean
+}
+pvalue_ih <- length(which(test_statistic_ih > permutate_ih))/N_ih 
+```
+
+```{r, echo=FALSE}
+hist(permutate_ih, 
+     main = "Difference of Mean Ages of Interviewed and Hired/Not-Hired", 
+     xlab = "Sample Mean Age Difference")
+abline(v = test_statistic_ih, col="red")
+```
+
+
+The p-value we get from this permutation test hovers around $0.18$, which is above our alpha level of 0.05. Thus given that the candidate is interviewed, it seems like age does not matter in if they get hired. This means that for our original permutation to tell us that age is a significant factor, age must also be significant first in if the applicants gets an interview. Let's check that.
+
+$$H_0 = \text{Mean age of applicants who are interviewed is the same as those who are not interviewed.}$$
+$$H_a = \text{Mean ages are different.}$$
+
+```{r}
+interviewed <- hires[which(hires$interviewed == "yes"),]
+not_interviewed <- hires[which(hires$interviewed == "no"),]
+test_statistic_interview <- mean(interviewed$age) - mean(not_interviewed$age)
+allages_interview <- c(interviewed$age, not_interviewed$age)
+totlength_interview <- length(interviewed$age) + length(not_interviewed$age)
+N_interview <- 5000
+permutate_interview <- rep(0,N_interview)
+for (ii in 1:N_interview){
+  sample_interview <- sample(allages_interview,totlength_interview,replace=F)
+  yes_mean <- mean(sample_interview[1:length(interviewed$age)])
+  no_mean <- mean(sample_interview[(length(interviewed$age)+1):totlength_interview])
+  permutate_interview[ii] <- yes_mean - no_mean
+}
+pvalue_interview <- length(which(test_statistic_interview > permutate_interview))/N_interview
+```
+
+The p-value of this test is around $0.01$ so we reject the null hypothesis in this case. These seems to be an age bias in selecting those to be interviewed.
+
+```{r, echo=FALSE}
+hist(permutate_interview, 
+     main = "Difference of Mean Ages of those Interviewed and Not Interviewed", 
+     xlab = "Sample Mean Age Difference")
+abline(v = test_statistic_interview, col="red")
+```
+
+It would also be interesting to see what other variables are important in hiring a teacher.
+
+```{r, include=FALSE}
+hires.na <- hires[complete.cases(hires), ]
+full <- glm(hired_01 ~ age + agegroup + residence + sex + MA + substitute + experience + teaching + workkids + volunteer, 
+            data = hires.na, family = binomial)
+null <- glm(hired_01 ~ 1, data = hires.na, family = binomial)
+step(null, scope=list(lower=null, upper=full), direction="forward") 
+step(full, data=hires.na, direction="backward") 
+step(null, scope = list(upper=full), data=hires.na, direction="both") 
+```
+
+From forward stepwise regression thorugh possible variables to use in our logistic regression, we only find the variable ```residence``` to be a predictor in whether an applicant is hired. backward stepwise regression returns a logistic model of ```hired_01 ~ residence + experience + volunteer```  and finally, a combination of forward and backward step returns a model of ```hired_01 ~ residence```.
+
+
+```{r}
+temp.glm <- glm(formula = hired_01 ~ residence + experience + volunteer, family = binomial, 
+                data = hires.na)
+summary(temp.glm)
+```
+
+Running the temp.glm reveals that only residence was a significant factor in hiring.
+
+However, regardless of the stepwise regression, I still tried out age as a significant factor in hiring. And it is indeed significant.
+
+```{r}
+temp <- glm(hired_01 ~ age,
+            data = hires, family=binomial)
+summary(temp)
+```
+
+However, what we discovered earlier was that age is indeed a significant factor in who is hired, but first, before they are considered for hiring, they are considered for interviews. And age and residence are both significant in who is interviewed.
+
+```{r}
+interview.glm <- glm(interviewed_01 ~ age + residence,
+                         data = hires, family = binomial)
+summary(interview.glm)
+```
+
+Finally, once the applicants are interviewed, age is no longer a significant factor, but experience is.
+
+```{r}
+interviewed <- hires[which(hires$interviewed == "yes"),]
+interviewed.glm <- glm(hired_01 ~ age + residence + experience, 
+                     data = interviewed, family = binomial)
+summary(interviewed.glm)
+```
+
+## Conclusion
+
+Both luckily and unluckily for the older female applicant, the data does suggest that age is a significant factor in the hiring process. Although it does not matter in the lawsuit, age is most significant in creating a bias when determining which applicant is to be interviewed. Once they are interviewed, age no longer causes a bias in the hiring process. At that point, experience is a significant factor (though it seems that more experience lowers the chances that the applicant is hired. Plot is provided because it's quite interesting.)
+
+```{r}
+boxplot(experience ~ hired, data=hires[which(hires$interviewed == "yes"),],
+        main = "Years of Experience of those Interviewed",
+        xlab = "Hired",
+        ylab = "Years of Experience")
+```
+
+The applicant and her lawyer have a case to bring to court.
+
+
+

@@ -1,0 +1,157 @@
+---
+title: "Police_Data_Pei"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse) 
+library(lubridate)
+library(ggplot2)
+library(nnet)
+
+CT_police <- readRDS("CT_police.rds")
+data <- CT_police[CT_police$driver_race %in% c("White", "Black", "Hispanic", "Asian"),]
+```
+
+## General Model of all Data
+
+Are police officers discrimatory?
+
+```{r pressure}
+glm.1 <- glm(search_conducted ~ driver_gender + driver_age + relevel(factor(data$driver_race), ref=4), 
+             data=data, family=binomial())
+summary(glm.1)
+```
+
+This general linear model says that being Black and Hispanics makes you more likely to be searched than if you were White (whereas if you were Asian, you would be less likely to be searched). Bar any other information, this makes it seem like the Conneticut Police are discrimatory against Blacks and Hispanics. 
+
+Let's take a closer look at the data.
+
+
+## Search Rate v Hit Rate: Officer Plots 
+
+```{r echo=FALSE}
+
+summary_stats <- function(search_conducted, contraband_found) {
+  n_stops     = length(search_conducted)
+  n_searches  = sum(search_conducted)
+  n_hits      = sum(contraband_found)
+  search_rate = n_searches / n_stops
+  hit_rate    = n_hits / n_searches
+  return(data.frame(n_stops, n_searches, n_hits, search_rate, hit_rate))
+}
+
+basic_summary_statistics_by_race = data %>% 
+  group_by(driver_race) %>% 
+  do(summary_stats(.$search_conducted, .$contraband_found))
+# basic_summary_statistics_by_race
+
+basic_summary_statistics_by_race_and_police = data %>% 
+  filter(!is.na(county_name)) %>%
+  group_by(driver_race, officer_id) %>%
+  do(summary_stats(.$search_conducted, .$contraband_found))
+
+
+data_for_plot <- basic_summary_statistics_by_race_and_police %>%
+  filter(driver_race == 'White') %>% 
+  right_join(basic_summary_statistics_by_race_and_police %>% filter(driver_race != 'White'), by='officer_id')
+
+# plot search rates. 
+max_val = max(basic_summary_statistics_by_race_and_police$search_rate) * 1.05
+search_plot = ggplot(data_for_plot) + 
+  # specify data we want to plot
+  geom_point(aes(x = search_rate.x, y = search_rate.y, size = n_stops.y)) + 
+  # make one subplot for each minority race group
+  facet_grid(.~driver_race.y) + 
+  # add a diagonal line to indicate parity
+  geom_abline(slope = 1, intercept = 0, linetype='dashed') +   
+  scale_x_continuous('White search rate', limits=c(0, max_val), labels = scales::percent, expand=c(0,0)) + 
+  scale_y_continuous('Minority search rate', limits=c(0, max_val), labels = scales::percent, expand=c(0,0)) + 
+  theme_bw(base_size=15) + 
+  theme(legend.position="none") + 
+  scale_size_area(max_size=5)
+search_plot
+
+
+# plotting officers who seem to have a definite bias
+# say, search rate is 3 more for minorities
+data_highsearchrate <- data_for_plot[which(data_for_plot$search_rate.y/data_for_plot$search_rate.x > 3),]
+max_val_hitrate = max(data_highsearchrate$hitrate) * 1.05
+hit_plot = ggplot(data_highsearchrate) + 
+  # specify data we want to plot
+  geom_point(aes(x = hit_rate.x, y = hit_rate.y, size = n_stops.y)) + 
+  # make one subplot for each minority race group
+  facet_grid(.~driver_race.y) + 
+  # add a diagonal line to indicate parity
+  geom_abline(slope = 1, intercept = 0, linetype='dashed') +   
+  scale_x_continuous('White hit rate', limits=c(0, max_val), labels = scales::percent, expand=c(0,0)) + 
+  scale_y_continuous('Minority hit rate', limits=c(0, max_val), labels = scales::percent, expand=c(0,0)) + 
+  theme_bw(base_size=15) + 
+  theme(legend.position="none") + 
+  scale_size_area(max_size=5)
+hit_plot
+
+
+```
+
+The classic “outcome test” suggests that when searches of minority drivers are less likely to be successful, it may indicate that minority drivers are searched when less likely to be carrying contraband, suggesting discriminatory search standards. In general, the combination of higher search rates for minority drivers, along with lower hit rates, suggests minority drivers are being searched on less evidence.
+
+In these plots, we plotted each individual police officer and their search rates and hit rates. 
+
+The first plot is of the white search rate for each officer, plotted against the minority search rate. Points that are above the diagonal line indicate that search rates are higher for minorities. While the search rate of most officers were definitely much higher for minorities, some officers had rates that were below the line too, and many where on the diaganol line.
+
+Of corse, sometimes this disparity in white versus minority search rate could just be because of chance. So for the second plot, we took the police officers who's search rates were at least three times higher for minorities and plotted their hit rates.
+
+```{r}
+length(which(data_highsearchrate$hit_rate.y > data_highsearchrate$hit_rate.x & 
+               data_highsearchrate$driver_race.y == "Black"))
+length(which(data_highsearchrate$hit_rate.y <= data_highsearchrate$hit_rate.x & 
+               data_highsearchrate$driver_race.y == "Black"))
+```
+
+While there were indeed many officers, 37 of them, who had very high search rates for Black minorities and hit rates that are above the diagonal, so their hit rates were also higher for minorites, the majority of officers, 106 of them, who fit the inital search criteria that made them seem very discrimatory to begin with, have lower hit rates for minorities, suggesting discrimatory search standards for those officers.
+
+## Stop Outcomes
+
+```{r results="hide"}
+data_speeding <- data[which(data$violation == "Speeding"),]
+
+multi.speeding_race <- multinom(stop_outcome ~ relevel(factor(data_speeding$driver_race), ref=4), data=data_speeding)
+summary(multi.speeding_race)
+z_multi.speeding_race <- summary(multi.speeding_race)$coefficients/summary(multi.speeding_race)$standard.errors
+p_multi.speeding_race <- (1 - pnorm(abs(z_multi.speeding_race), 0, 1)) * 2
+
+```
+
+Let's consider another direction of determining discrimatory practices. First, consider only the incidents where the stop was cited for Speeding reasons. Given that reason, is there discrimanation when the police officers give out a verbal warning, a written warning, a ticket, or a summons to court?
+
+The mutinomial regression seems to indicate that there is White is the race that is most likely to get office with just a verbal warning, where as all other races have to deal with more several outcomes. 
+
+```{r}
+data_ticket_verbal <- data_speeding[which(data_speeding$stop_outcome == "Ticket" | data_speeding$stop_outcome == "Verbal Warning"),]
+data_ticket_verbal$stop_outcome <- factor(data_ticket_verbal$stop_outcome, levels=c("Verbal Warning", "Ticket"))
+data_ticket_verbal$driver_race <- factor(data_ticket_verbal$driver_race, levels=c("White", "Asian", "Hispanic", "Black"))
+glm.ticket_verbal <- glm(stop_outcome ~ driver_race, 
+                         data=data_ticket_verbal,
+                         family=binomial())
+summary(glm.ticket_verbal)
+```
+
+
+glm.ticket_verbal runs a regression on stop_outcome, where outcome is only either Ticket or Verbal Warning. Asians, Hispanics, and Blakcs are all more likely than Whites to recieve a ticket over getting off with a verbal warning, with coefficients of 1.00437, 0.68493, and 0.38339, respectively.
+
+```{r}
+data_summons_verbal <- data_speeding[which(data_speeding$stop_outcome == "Summons" | data_speeding$stop_outcome == "Verbal Warning"),]
+data_summons_verbal$stop_outcome <- factor(data_summons_verbal$stop_outcome, levels=c("Verbal Warning", "Summons"))
+data_summons_verbal$driver_race <- factor(data_summons_verbal$driver_race, levels=c("White", "Asian", "Hispanic", "Black"))
+glm.summons_verbal <- glm(stop_outcome ~ driver_race, 
+                         data=data_summons_verbal,
+                         family=binomial())
+summary(glm.summons_verbal)
+```
+
+glm.summons_verbal runs a regression on stop_outcome, where outcome is only either Summons, the most severe outcome, or verbal warning. Hispanics and Blacks were more likely than whites to recieve summons, with coefficients of 1.12709 and 0.93752 respectively.
+
+
