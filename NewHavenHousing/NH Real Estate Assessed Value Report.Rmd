@@ -1,0 +1,131 @@
+---
+title: "NH Real Estate Assessed Value Report"
+author: "Phoebe Cheung, Margaret Luo, Pei Tao"
+date: "October 1, 2017"
+output:
+  pdf_document: default
+  word_document: default
+  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### 1. Introduction
+
+In this paper, we aim to build a model to predict the total value (`totval`) of properties in New Haven, Connecticut. The data used for this analysis was scraped from the Vision Government Solutions website, a database containing assessment information on properties in New Haven.
+
+### 2. Methodology for Data Cleaning
+
+Before any modeling, we cleaned our data to capture the most accurate longitudinal and latitudinal coordinates. Plotting the coordinates of each parcel ID (`pid`) and distinguishing the shape of New Haven, we were able to identify clusters of `pid`s clearly of the New Haven area. We used the `ggmaps` package to collect the longitudes and latitudes using the street addresses of these `pid`s. Once we replotted these corrected `pid`s, we reevaluated our plotted map of New Haven. There were a few more individual outliers to the map, whose longitudes and latitudes we reported as `NA`s.
+
+### 3. Exploratory Data Analysis
+#### 3.1 Intuition
+In order to gain a preliminary sense of which of the variables we scraped would be good predictors for `totval`, we eliminated a few that we wanted to look at. We first determined that owner address and previous sale history would not be helpful in determining the value of a property. Looking at the summaries for the variables helped us determine that bathroom style and kitchen style would not be good predictors because the majority of the `pid`s were evaluated as "Average" and less than three hundred total as either "Below Average" or "Above Average". We then determined from the summaries to not include garage square feet (`garagesqft`) because approximately half of the `pid`s contained `NA`s; we did not want to assume that `NA` implied no garage (a garage of 0 square footage). `Occupancy` and `model` both described how many occupants and families a property could house respectively, which we believed could be related to the number of bedrooms and bathrooms. We decided that the number of bedrooms, bathrooms, and half bathrooms (`halfbaths`) could be good predictors of the `totval`, and we used these variables instead.
+
+#### 3.2 Grouping *`Grade`*
+Continuing to look at the summaries of the variables, we noticed that percent good (`pctgood`) and `grade` both measured the quality of the property. We decided to do some exploratory analysis on the categorical variable `grade`. Examining the summary for `grade`, we noticed that some categories had low counts. We chose to regroup the 16 categories into five more general ones, creating a new variable `grade2`. We consolidated the following:
+
+* **4. Excellent**: "Very Good", "Vg/Exc", "Excellent", and "Excellent +"
+* **5. Superior**: "Superior -", "Superior", "Superior +", and "Luxurious"
+
+In order to understand the differences between "Average", "Fair", "Good", "Below Average", and the various combinations of these classifications, we looked at a boxplot of these categories and based our groupings on their distributions of `totval`:
+
+```{r, echo=FALSE, fig.height=3.5}
+MasterData <- read.csv("FinalMasterData.csv", as.is = T, colClasses = c(neighborhood2 = "character"))
+MDgrade <- MasterData[which(MasterData$grade %in% c("Above Average", "Ave/Fair", "Ave/Good", "Average", "Fair", "Good", "Below Average")),]
+boxplot(log(totval)~grade, data=MDgrade, main="Log Total Value by Grade (Below Average - Above Average)", xlab = "Grade", ylab = "Log Total Value",cex.axis=0.65)
+```
+
+Using this boxplot as guidance we made the following reclassifications:
+
+* **1. Below Average**: "Low Cost", "Below Average", "Fair" and "Ave/Fair"
+* **2. Average**: "Average"
+* **3. Above Average**: "Good", "Ave/Good", and "Above Average"  
+
+We decided to keep "Average" as it was without grouping it with anything else, since its boxplot showed many outliers. We decided this could be due to different evaluators' interpretation of the generic term "average". By using this new grouping, we can see the distributions of `totval` by classification:
+
+```{r, echo=FALSE, fig.height = 3.5}
+boxplot(log(totval)~grade2,data=MasterData, main="Log Total Value by Grade (Reclassified)",
+        xlab="Grade", ylab="Log Total Value", cex.axis = 0.65)
+```
+
+We can clearly see that the distribution of `totval` centers among higher values of `totval` as the `pid`s increase in grade evaluation, which may mean that `grade` would be a good predictor of `totval`.
+
+#### 3.3 Grouping `Neighborhood`
+Once again looking at the summary of the variables, we noticed neighborhoods to have low counts the categories "CHP3", "CHP4", "G1", "IND5", "OR3", "Q1", "W", "WHA4", and "X", which accounted for 10 `pid`s in total. When plotting the `pid`s in these neighborhoods on our latitude vs. longitude plot, we noticed that they were quite spread out:
+\newline
+```{r, echo=FALSE, fig.height=3.6}
+plot(MasterData$latitude ~ MasterData$longitude, main="New Haven `pid` Locations", xlab = "Longitude", ylab = "Latitude")
+points(MasterData[which(MasterData$neighborhood 
+                 %in% c("CHP3",'CHP4','G1','IND5','OR3', 'Q1', 'W','WHA4','X')),]$longitude,
+MasterData[which(MasterData$neighborhood %in% 
+            c("CHP3",'CHP4','G1','IND5','OR3', 'Q1', 'W','WHA4','X')),]$latitude,
+col="red")
+```
+\newline
+We decided to not include these categories for neighborhoods and changed them to `NA`'s in a new variable `neighborhood2`. We then reproduced our latitude vs. longitude plot by color coding by neighborhood:
+\newline
+``` {r, echo=FALSE, fig.height=3.6}
+plot(MasterData$latitude ~ MasterData$longitude ,main="New Haven `pid` Locations by Neighborhood",
+     xlab="Longitutde",ylab="Latitude")
+colvect <- c("blue", "cyan", "blueviolet", "darkgoldenrod",
+             "black","darkgreen", "darkorange", 
+             "darkred","forestgreen", "chartreuse","brown4",
+             "deeppink","gold",
+             "lightskyblue4","violet","tomato","seashell4", "pink4",
+             "seagreen1", "darkolivegreen", "slateblue4","red","aquamarine","limegreen",
+             "lightslateblue", "lightgoldenrod3","mediumvioletred","yellow",
+             "mistyrose1","moccasin","sienna1"
+)
+for (i in 1:(length(table(MasterData$neighborhood2)))){
+  points(MasterData[which(MasterData$neighborhood2 == names(table(MasterData$neighborhood2))[i]),]$longitude,
+         MasterData[which(MasterData$neighborhood2 == names(table(MasterData$neighborhood2))[i]),]$latitude,
+         col=colvect[i])
+}
+
+```
+\newline
+By seeing that each `pid` seems clustered by a neighborhood in New Haven, we believed that `neighborhood2` would be a good predictor of `totval` and would implicitly include longitudinal and latitudinal data in the analysis.
+
+#### 3.4 Other Variables Considered
+Other variables besides `bedrooms`, `bathrooms`, `halfbaths`, our reclassified `grade2`, and our reclassified `neighborhood2` that we wanted to consider for our analysis were `yearbuilt`, `sqft`, `acres`, `style`, and `actype`. We believed that when a property was built might affect its value, as we felt that properties tend to grow in value over time. However, we also considered the case that an older, improperly-maintained property might lose value as it falls into disrepair. If a property had more livable square feet and acres of land, we believed that it would have higher value. In addition, we hypothesized that the existence and type of air conditioning (`actype`) would affect the overall property value. In the case of `style`, we considered the idea that different housing styles may be more attractive and easier to properly maintain, increasing the property's overall value.
+
+### 4. Regression Analysis
+#### 4.1 The Model
+We decided to run a linear model with different combinations of the variables we determined beforehand to possibly estimate `totval`. We chose to take the logarithm of `totval` due to the magnitude of the values and the fact that the distribution is right skewed.
+The model that we found to best estimate `totval` is as follows:
+```{r}
+MFinal <- lm(log(totval) ~ bedrooms + bathrooms + halfbaths + acres + sqft + 
+               neighborhood2 + grade2 + actype, data = MasterData)
+summary(MFinal)$r.squared
+```
+See Appendix A for the full summary of the linear model.
+After running the regression, we visualized the residuals in two different ways:
+
+```{r,echo=F,fig.height=4.2}
+plot(MasterData$longitude, MasterData$latitude, col=ifelse(resid(MFinal) > 0, "green", "red"), pch=16, cex=0.5,
+     main="Map of Points based on Residual Value",xlab="",ylab="",cex.main=0.85)
+```
+
+In this plot of the residuals by longitudinal and latitudinal locations, the green points represent `pid`'s with positive residuals, red represent negative. Had there been clustering of red and green, this would mean some neighborhoods were poorly represented by the model. However, since we do not see this effect, the result is that we believe our model represents the neighborhoods well.
+
+```{r,echo=F,fig.height=4}
+plot(resid(MFinal),main="Residuals",ylab="Residuals",cex.main=0.85)
+```
+
+Our residuals vs. fitted plot looks relatively well-behaved with no obvious trends and only a few outliers, suggesting that our choice of model to predict `totval` was appropriate.
+
+#### 4.2 Model Interpretation
+After testing various linear models, we found that `yearbuilt` was not a statistically significantpredictor of `totval` (at the $\alpha$ = 0.05 level). This may be due to our beliefs mentioned above that an older building could have increased or decreased over time depending on how its maintainence over the years.  
+
+Our model implies that, as one might expect, the number of bedrooms and bathrooms and the acreage and square footage of a house were positively associated with its value, i.e., when acreage or the number of bedrooms increases, so does the house's value. Certain neighborhoods (e.g. neighborhoods 21300, 21400) were also positively associated with a house's value, whereas others (e.g. neighborhoods 20200, 20300) were negatively associated.  
+
+Almost all of the variables we included in our model had highly significant coefficients, suggesting that we had intuited correctly in our variable choice. Our residual plots also show a promising "patternlessness," so to speak. Based on the initial analysis, the testing of various regressions with combinations of variables to optimize the predictability, and the resulting seemingly well-behaved residuals, we found that the linear model containing the combination of `bedrooms`, `bathrooms`, `halfbaths`, `acres`, `sqft`, `neighborhood2`, `grade2`, and `actype` best predicted the total value of a property in New Haven, Connecticut.
+\newpage
+
+### Appendix A
+``` {r}
+summary(MFinal)
+```
