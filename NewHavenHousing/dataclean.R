@@ -255,14 +255,6 @@ for (ii in 1:27307){
 }
 
 
-
-
-
-
-
-
-
-
 write.csv(data, "dataclean.csv", row.names = FALSE)
 
 
