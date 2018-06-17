@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+	Vision Government Solutions
+</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="/NewHavenCT/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link type="text/css" rel="stylesheet" media="all" href="/NewHavenCT/Styles/base.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="/NewHavenCT/Styles/parcel.css" />
+   
+    
+   <!--
+   [if IE 7]><link type="text/css" rel="stylesheet" media="all" href="/NewHavenCT/Styles/ie7.css" /><![endif]
+   [if IE 8]><link type="text/css" rel="stylesheet" media="all" href="/NewHavenCT/Styles/ie8.css"/><![endif]
+   -->
+    <link href="/NewHavenCT/Styles/SoftGreyGridView.css" rel="stylesheet" type="text/css" />
+    <link href="/NewHavenCT/Styles/jquery-ui-1.9.2.custom.css" rel="stylesheet" type="text/css" />
+   
+   
+    <link rel="shortcut icon" href="/NewHavenCT/Images/VGS_Icon32x32.ico" type="image/x-icon" />
+   
+    <style type="text/css">
+	   .myoutercontainer { position:relative }
+	   .myinnercontainer { position:absolute; top:50%; height:75px; margin-top:0px }
+    </style>
+    <style type="text/css" media="print">
+       .hideMeInPrint { display: none; }
+         #panBannerDefault{ display: none;}
+    </style>
+    
+    
+</head>
+<body class="page front">
+	<form method="post" action="./Parcel.aspx?pid=19248" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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AhYPZBYEZg8PFgIfAQUOMXN0IEZsb29yIFVzZTpkZAIBDw8WAh8BBQQzMjIwZGQCFw9kFgRmDw8WAh8BBQdIZWF0L0FDZGQCAQ8PFgIfAQUMSEVBVC9BQyBQS0dTZGQCGA9kFgRmDw8WAh8BBQpGcmFtZSBUeXBlZGQCAQ8PFgIfAQUHTUFTT05SWWRkAhkPZBYEZg8PFgIfAQUOQmF0aHMvUGx1bWJpbmdkZAIBDw8WAh8BBQdBVkVSQUdFZGQCGg9kFgRmDw8WAh8BBQxDZWlsaW5nL1dhbGxkZAIBDw8WAh8BBQ5TVVMtQ0VJTC9NTiBXTGRkAhsPZBYEZg8PFgIfAQULUm9vbXMvUHJ0bnNkZAIBDw8WAh8BBQdBVkVSQUdFZGQCHA9kFgRmDw8WAh8BBQtXYWxsIEhlaWdodGRkAgEPDxYCHwEFAjEwZGQCHQ9kFgRmDw8WAh8BBQslIENvbW4gV2FsbGRkAgEPDxYCHwEFBiZuYnNwO2RkAh4PDxYCHwJoZGQCBw8PFgIfAmhkFgICAQ9kFgICAQ9kFjpmD2QWDGYPFgIeBVZhbHVlBQ5SZXRhaWw8MTB0aCBzZmQCAg8WAh8HBRBDT05TVFIuQ05TX1NUWUxFZAIEDxYCHwcFFUNPTlNUUi5DTlNfU1RZTEVfREVTQ2QCBg8WAh8HBQdwaWNra2V5ZAIIDw8WAh8BBQVTdHlsZWRkAgoPDxYCHwJnZBYCAgEPEA8WBh4NRGF0YVRleHRGaWVsZAUFREVTQ1IeDkRhdGFWYWx1ZUZpZWxkBQRDT0RFHwRnZBAVaAAIMiBGYW1pbHkOQWlycG9ydCBIYW5nYXIFQXB0IDEKQXB0IDEtNyBzdA5BcHQgOHMgSGktUmlzZQpBdWRpdG9yaXVtCkF1ZGl0b3JpdW0LQXV0byBEZWFsZXIEQmFuaw1Cb3dsaW5nL0FyZW5hCENhcGUgQ29kCENhciBXYXNoCENodXJjaGVzCENodXJjaGVzCUNpdHkgSGFsbAlDbGFzc3Jvb20JQ2xhc3Nyb29tDENsdWJzL0xvZGdlcwxDbHVicy9Mb2RnZXMMQ29sZCBTdG9yYWdlCkNvbW1lcmNpYWwMRGF5IENhcmUgQ3RyC0RpbmluZyBIYWxsC0RpbmluZyBIYWxsCURvcm1pdG9yeQlEb3JtaXRvcnkKRXF1aXAgQmxkZwtGYXN0IEZkIENobg5GYXN0IEZvb2QgTG9jbAxGaXJlIFN0YXRpb24MRm9vZCBQcm9jZXNzDEZ1bmVyYWwgSG9tZQZHYXJhZ2UNR2FyYWdlL09mZmljZQhHYXMgTWFydAxHYXNTdmMgU3RhdG4JR3ltbmFzaXVtCUd5bW5hc2l1bQtIZWFsdGggQ2x1YghIb3NwaXRhbAVIb3RlbApJbmQvT2ZmaWNlDEluZHVzdCBDb25kbwpJbmR1c3RyaWFsBEphaWwKTGFib3JhdG9yeQpMYWJvcmF0b3J5B0xpYnJhcnkHTGlicmFyeQlNL1UgQ09ORE8NTWVkIE9mZmMgQ25kbw5NZWRpY2FsIE9mZmljZQ5NZWRpY2FsIE9mZmljZQlNaWxsIEJsZGcLTWl4IE9mZiBBcHQLTWl4IFJldCBBcHQLTWl4IFJldCBPZmYFTW90ZWwGTVUgQXB0Dk11c2V1bS9HYWxsZXJ5Dk11c2V1bS9HYWxsZXJ5DU5pZ2h0Y2x1Yi9CYXINTnVyc2luZyAoQUxGKQ1OdXJzaW5nIChTTkYpDE9mZiBDb252IFJlcwxPZmYgQ29udiBSZXMGT2ZmaWNlBk9mZmljZQxPZmZpY2UgQ29uZG8NT3RoZXIgRmVkZXJhbA1PdGhlciBNdW5pY2lwDlBhcmtpbmcgR2FyYWdlCFBoYXJtYWN5DFBsYXphIHcvQW5jaAtQb3dlciBQbGFudAtQcm9mIE9mZmljZQtQcm9mIE9mZmljZQVSYW5jaAdSZWN0b3J5C1JlcyBDb2xsZWdlC1JlcyBDb2xsZWdlDlJlc2VhcmNoL0RldmVsDlJlc2VhcmNoL0RldmVsClJlc3RhdXJhbnQMUmV0YWlsIENvbmRvDlJldGFpbDwxMHRoIHNmDlJldGFpbD4xMHRoIHNmC1NjaG9vbC9FbGVtDlNjaG9vbHMtTWlkIEhpDlNjaG9vbHMtTWlkIEhpDFNlbGYgU3RvcmFnZQ5TZXJ2aWNlIEdhcmFnZQ1Ta2F0aW5nIEFyZW5hDVNrYXRpbmcgQXJlbmEHU3RhZGl1bQdTdGFkaXVtDFN0cmlwIFN0b3JlcwtTdXBlcm1hcmtldA1UaGVhdGVycyBFbmNsDlRoZWF0ZXJzIEVuY2wuDlRydWNrIFRlcm1pbmFsCVdhcmVob3VzZQtXaHNlL09mZmljZRVoAAIwOQI3OAMxNDACMTQCOTcCWVMCODICMjcCMzECMzQCMDQCNDMCNzECWU8CNTgCMzgCWUcCWVICNzcCNDcCUlQCMjkCNTICWUsCWU4CNzACNzUCMjECOTECNTkCNDYCMjgCMjMCOTUCNTACMjYCNTMCWUwCNTQCODUCNjYCOTMCOTgCNDACNTYCMzcCWUYCWU0CNTcCTUMCNDkCMTkCWUMCNDICODECODACNzkCMzkDODEwAjQ1AllJAjMzAjg0AjY0AjEyAllBAllCAjE4Ajg3Ajg4Ajg5AjI0AjYzAjE2AjQ0AjIwAllEAjAxAjYyAjUxAllKAllIAjQxAjMwAjkwAjE3AjEzAjcyAjgzAllUAjkyAjI1AjY1AllVAllRAjc0AjE1AjIyAllFAjMyAjY5AjQ4Ajk2FCsDaGdnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnFgECVmQCAQ9kFg5mDxYCHwcFCkNvbW1lcmNpYWxkAgIPFgIfBwUOQ09OU1RSLkNOU19NRExkAgQPFgIfBwUTQ09OU1RSLkNOU19NRExfREVTQ2QCBg8WAh8HBQdwaWNra2V5ZAIIDw8WAh8BBQVNb2RlbGRkAgoPDxYCHwJnZBYCAgEPEA8WCB8IBQVERVNDUh8JBQRDT0RFHwRnHgdFbmFibGVkaGQQFQsACUNvbSBDb25kbwpDb21tZXJjaWFsCkNvbmRvIE1haW4KSW5kL0xnIENvbQ1NdWx0aS1GYW0gMi00Dk11bHRpLUZhbSA1LTEyCVJlcyBDb25kbw1TaW5nbGUgRmFtaWx5C1N2YyBTdGEvR2FyBlZhY2FudBULAAIwNgI5NAIwNAI5NgIwMgIwMwIwNQIwMQI5NQIwMBQrAwtnZ2dnZ2dnZ2dnZxYBAgJkAgwPZBYCAgEPDxYCHwpoZGQCAg9kFg5mDxYCHwcFB0F2ZXJhZ2VkAgIPFgIfBwUTQ09OU1RSQ09NLkNOU19HUkFERWQCBA8WAh8HBRhDT05TVFJDT00uQ05TX0dSQURFX0RFU0NkAgYPFgIfBwUHcGlja2tleWQCCA8PFgIfAQUFR3JhZGVkZAIKDw8WAh8CZ2QWBAIBDxAPFggfCAUFREVTQ1IfCQUEQ09ERR8EZx8KaGQQFRcACUV4Y2VsbGVudAtFeGNlbGxlbnQgKwlHUkFERSBBKysGVmcvRXhjCFN1cGVyaW9yClN1cGVyaW9yICsKU3VwZXJpb3IgLQhHUkFERV9BQwlHUkFERV9BQysJR1JBREVfQUMtBEdvb2QJVmVyeSBHb29kCEF2ZS9Hb29kB0F2ZXJhZ2UNQWJvdmUgQXZlcmFnZQ1CZWxvdyBBdmVyYWdlBEZhaXIIQXZlL0ZhaXIITG93IENvc3QJTHV4dXJpb3VzB0NsYXNzIFMGR290aGljFRcAAUECQSsDQSsrAkEtAkFBA0FBKwNBQS0CQUMDQUMrA0FDLQFCAkIrAkItAUMCQysCQy0BRAJEKwJELQFMAVMBWBQrAxdnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZxYBAg5kAgMPDxYCHwpnZGQCDA9kFgQCAQ8PFgIfCmhkZAIFDw8WAh8KZ2RkAgMPZBYOZg8WAh8HBQExZAICDxYCHwcFFUNPTlNUUkNPTS5DTlNfU1RPUklFU2QCBA8WAh8HBRpDT05TVFJDT00uQ05TX1NUT1JJRVNfREVTQ2QCBg8WAh8HBQdudW1lcmljZAIIDw8WAh8BBQhTdG9yaWVzOmRkAgoPZBYCAgEPEGRkFgBkAgwPDxYCHwJnZBYEAgEPDxYCHwEFATFkZAIDDw8WAh8KaGRkAgQPZBYOZg8WAh8HBQExZAICDxYCHwcFF0NPTlNUUkNPTS5DTlNfTlVNX1VOSVRTZAIEDxYCHwcFF0NPTlNUUkNPTS5DTlNfTlVNX1VOSVRTZAIGDxYCHwcFB251bWVyaWNkAggPDxYCHwEFCU9jY3VwYW5jeWRkAgoPZBYCAgEPEGRkFgBkAgwPDxYCHwJnZBYEAgEPDxYCHwEFATFkZAIDDw8WAh8KaGRkAgUPZBYOZg8WAh8HBQxDb25jci9DaW5kZXJkAgIPFgIfBwUXQ09OU1RSQ09NLkNOU19VU1JGTERfODRkAgQPFgIfBwUcQ09OU1RSQ09NLkNOU19VU1JGTERfODRfREVTQ2QCBg8WAh8HBQdwaWNra2V5ZAIIDw8WAh8BBQ9FeHRlcmlvciBXYWxsIDFkZAIKDw8WAh8CZ2QWBAIBDxAPFgYfCAUFREVTQ1IfCQUEQ09ERR8EZ2QQFR8ADUFib3ZlIEF2ZXJhZ2UOQWx1bWludW0gU2lkbmcOQXNiZXN0IFNoaW5nbGUHQXNwaGFsdA1CZWxvdyBBdmVyYWdlDkJvYXJkICYgQmF0dGVuBUJyaWNrBUJyaWNrBUNlZGFyCUNsYXBib2FyZA5Db21wLi9XYWxsIEJyZAxDb25jci9DaW5kZXIGRHJpdml0DUdsYXNzL1RoZXJtby4ETG9ncwhNYXNvbml0ZQdNaW5pbXVtCVBvbHllc3Rlcg5QcmUtY2FzdCBDb25jcgxQcmUtRmFiIFdvb2QOUHJlLWZpbnNoIE1ldGwNUHJlY2FzdCBQYW5lbA5SZWluZm9yYyBDb25jcg1TaW5nbGUgU2lkaW5nBVN0b25lBlN0dWNjbwRUaWxlDFZpbnlsIFNpZGluZw5Xb29kIG9uIFNoZWF0aAxXb29kIFNoaW5nbGUVHwACMTACMjYCMDcCMTgCMDMCMDYCMTkCMjACMTICMTECMDICMTUCMjkCMjgCMDkCMDUCMDECMzACMjMCMTMCMjcCMjICMjQCMDQCMjECMTcCMTYCMjUCMDgCMTQUKwMfZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZxYBAgxkAgMPDxYCHwpnZGQCDA9kFgICBQ8PFgIfCmdkZAIGD2QWDGYPFgIfB2VkAgIPFgIfBwUYQ09OU1RSQ09NLkNOU19VU1JGTERfMjAwZAIEDxYCHwcFHUNPTlNUUkNPTS5DTlNfVVNSRkxEXzIwMF9ERVNDZAIGDxYCHwcFB3BpY2trZXlkAggPDxYCHwEFD0V4dGVyaW9yIFdhbGwgMmRkAgoPDxYCHwJnZBYCAgEPEA8WBh8IBQVERVNDUh8JBQRDT0RFHwRnZBAVHwANQWJvdmUgQXZlcmFnZQ5BbHVtaW51bSBTaWRuZw5Bc2Jlc3QgU2hpbmdsZQdBc3BoYWx0DUJlbG93IEF2ZXJhZ2UOQm9hcmQgJiBCYXR0ZW4FQnJpY2sFQnJpY2sFQ2VkYXIJQ2xhcGJvYXJkDkNvbXAuL1dhbGwgQnJkDENvbmNyL0NpbmRlcgZEcml2aXQNR2xhc3MvVGhlcm1vLgRMb2dzCE1hc29uaXRlB01pbmltdW0JUG9seWVzdGVyDlByZS1jYXN0IENvbmNyDFByZS1GYWIgV29vZA5QcmUtZmluc2ggTWV0bA1QcmVjYXN0IFBhbmVsDlJlaW5mb3JjIENvbmNyDVNpbmdsZSBTaWRpbmcFU3RvbmUGU3R1Y2NvBFRpbGUMVmlueWwgU2lkaW5nDldvb2Qgb24gU2hlYXRoDFdvb2QgU2hpbmdsZRUfAAIxMAIyNgIwNwIxOAIwMwIwNgIxOQIyMAIxMgIxMQIwMgIxNQIyOQIyOAIwOQIwNQIwMQIzMAIyMwIxMwIyNwIyMgIyNAIwNAIyMQIxNwIxNgIyNQIwOAIxNBQrAx9nZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnFgFmZAIHD2QWDmYPFgIfBwUERmxhdGQCAg8WAh8HBRhDT05TVFJDT00uQ05TX1VTUkZMRF8yMDFkAgQPFgIfBwUdQ09OU1RSQ09NLkNOU19VU1JGTERfMjAxX0RFU0NkAgYPFgIfBwUHcGlja2tleWQCCA8PFgIfAQUOUm9vZiBTdHJ1Y3R1cmVkZAIKDw8WAh8CZ2QWBAIBDxAPFgYfCAUFREVTQ1IfCQUEQ09ERR8EZ2QQFQ4ADkJvd3N0cmluZyBUcnVzBEZsYXQJR2FibGUvSGlwB0dhbWJyZWwJSXJyZWd1bGFyB01hbnNhcmQOUHJlc3RyZXMgQ29uY3IOUmVpbmZvcmMgQ29uY3IOUmlnaWQgRnJtL0JKc3QIU2FsdCBCb3gEU2hlZA5TdGVlbCBGcm0vVHJ1cwpXb29kIFRydXNzFQ4AAjExAjAxAjAzAjA3AjA4AjA2AjEzAjEyAjA5AjA1AjAyAjEwAjA0FCsDDmdnZ2dnZ2dnZ2dnZ2dnFgECAmQCAw8PFgIfCmdkZAIMD2QWAgIFDw8WAh8KZ2RkAggPZBYOZg8WAh8HBQpUJkcvUnViYmVyZAICDxYCHwcFGENPTlNUUkNPTS5DTlNfVVNSRkxEXzIwMmQCBA8WAh8HBR1DT05TVFJDT00uQ05TX1VTUkZMRF8yMDJfREVTQ2QCBg8WAh8HBQdwaWNra2V5ZAIIDw8WAh8BBQpSb29mIENvdmVyZGQCCg8PFgIfAmdkFgQCAQ8QDxYGHwgFBURFU0NSHwkFBENPREUfBGdkEBUNAA5Bc2Jlc3RvcyBTaGluZwdBc3BoYWx0CUNsYXkgVGlsZQ1Db25jcmV0ZSBUaWxlDkNvcnJ1Z2F0ZWQgQXNiBkN1c3RvbQ5FbmFtIE10bCBTaGluZwlNZXRhbC9UaW4NUm9sbGVkIENvbXBvcwVTbGF0ZQpUJkcvUnViYmVyDFdvb2QgU2hpbmdsZRUNAAIwNgIwMwIwOAIwNwIwNQIxMgIwOQIwMQIwMgIxMQIwNAIxMBQrAw1nZ2dnZ2dnZ2dnZ2dnFgECC2QCAw8PFgIfCmdkZAIMD2QWAgIFDw8WAh8KZ2RkAgkPZBYOZg8WAh8HBQ5Ecnl3YWxsL1BsYXN0ZWQCAg8WAh8HBRhDT05TVFJDT00uQ05TX1VTUkZMRF8yMDNkAgQPFgIfBwUdQ09OU1RSQ09NLkNOU19VU1JGTERfMjAzX0RFU0NkAgYPFgIfBwUHcGlja2tleWQCCA8PFgIfAQUPSW50ZXJpb3IgV2FsbCAxZGQCCg8PFgIfAmdkFgQCAQ8QDxYGHwgFBURFU0NSHwkFBENPREUfBGdkEBUIAA1DdXN0IFdkIFBhbmVsDkRyeXdhbGwvUGxhc3RlC0sgUElORS9BIFdEDU1pbmltL01hc29ucnkOUGxhc3RlcmVkL0RyeXcNUGx5d29vZCBQYW5lbA1XYWxsIEJyZC9Xb29kFQgAAjA2AjA1AjA3AjAxAjAzAjA0AjAyFCsDCGdnZ2dnZ2dnFgECAmQCAw8PFgIfCmdkZAIMD2QWAgIFDw8WAh8KZ2RkAgoPZBYMZg8WAh8HZWQCAg8WAh8HBRhDT05TVFJDT00uQ05TX1VTUkZMRF8yMDRkAgQPFgIfBwUdQ09OU1RSQ09NLkNOU19VU1JGTERfMjA0X0RFU0NkAgYPFgIfBwUHcGlja2tleWQCCA8PFgIfAQUPSW50ZXJpb3IgV2FsbCAyZGQCCg8PFgIfAmdkFgICAQ8QDxYGHwgFBURFU0NSHwkFBENPREUfBGdkEBUIAA1DdXN0IFdkIFBhbmVsDkRyeXdhbGwvUGxhc3RlC0sgUElORS9BIFdEDU1pbmltL01hc29ucnkOUGxhc3RlcmVkL0RyeXcNUGx5d29vZCBQYW5lbA1XYWxsIEJyZC9Xb29kFQgAAjA2AjA1AjA3AjAxAjAzAjA0AjAyFCsDCGdnZ2dnZ2dnFgFmZAILD2QWDmYPFgIfBwUNVmlueWwvQXNwaGFsdGQCAg8WAh8HBRhDT05TVFJDT00uQ05TX1VTUkZMRF8yMDVkAgQPFgIfBwUdQ09OU1RSQ09NLkNOU19VU1JGTERfMjA1X0RFU0NkAgYPFgIfBwUHcGlja2tleWQCCA8PFgIfAQUQSW50ZXJpb3IgRmxvb3IgMWRkAgoPDxYCHwJnZBYEAgEPEA8WBh8IBQVERVNDUh8JBQRDT0RFHwRnZBAVFQAHQXZlcmFnZQZDYXJwZXQOQ2VyYW0gQ2xheSBUaWwOQ29uY3IgQWJ2IEdyYWQOQ29uY3ItRmluaXNoZWQJQ29yayBUaWxlCURpcnQvTm9uZQ1GaW4gV0QvQ2FycGV0CExpbm9sZXVtBk1hcmJsZQ1NaW5pbXVtL1BseXdkB1BhcnF1ZXQFUGVyZ28OUGluZS9Tb2Z0IFdvb2QNUHJlY2FzdCBDb25jcgtRdWFycnkgVGlsZQVTbGF0ZQ5UZXJyYXp6byBFcG94eQ5UZXJyYXp6byBNb25vbA1WaW55bC9Bc3BoYWx0FRUAAjA4AjE0AjExAjA0AjAzAjA3AjAxAjEyAjA2AjE5AjAyAjEzAjIwAjA5AjE3AjE1AjE4AjE2AjEwAjA1FCsDFWdnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZxYBAhRkAgMPDxYCHwpnZGQCDA9kFgICBQ8PFgIfCmdkZAIMD2QWDGYPFgIfB2VkAgIPFgIfBwUYQ09OU1RSQ09NLkNOU19VU1JGTERfMjA2ZAIEDxYCHwcFHUNPTlNUUkNPTS5DTlNfVVNSRkxEXzIwNl9ERVNDZAIGDxYCHwcFB3BpY2trZXlkAggPDxYCHwEFEEludGVyaW9yIEZsb29yIDJkZAIKDw8WAh8CZ2QWAgIBDxAPFgYfCAUFREVTQ1IfCQUEQ09ERR8EZ2QQFRUAB0F2ZXJhZ2UGQ2FycGV0DkNlcmFtIENsYXkgVGlsDkNvbmNyIEFidiBHcmFkDkNvbmNyLUZpbmlzaGVkCUNvcmsgVGlsZQlEaXJ0L05vbmUNRmluIFdEL0NhcnBldAhMaW5vbGV1bQZNYXJibGUNTWluaW11bS9QbHl3ZAdQYXJxdWV0BVBlcmdvDlBpbmUvU29mdCBXb29kDVByZWNhc3QgQ29uY3ILUXVhcnJ5IFRpbGUFU2xhdGUOVGVycmF6em8gRXBveHkOVGVycmF6em8gTW9ub2wNVmlueWwvQXNwaGFsdBUVAAIwOAIxNAIxMQIwNAIwMwIwNwIwMQIxMgIwNgIxOQIwMgIxMwIyMAIwOQIxNwIxNQIxOAIxNgIxMAIwNRQrAxVnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2cWAWZkAg0PZBYOZg8WAh8HBQdPaWwvR2FzZAICDxYCHwcFGENPTlNUUkNPTS5DTlNfVVNSRkxEXzIwN2QCBA8WAh8HBR1DT05TVFJDT00uQ05TX1VTUkZMRF8yMDdfREVTQ2QCBg8WAh8HBQdwaWNra2V5ZAIIDw8WAh8BBQxIZWF0aW5nIEZ1ZWxkZAIKDw8WAh8CZ2QWBAIBDxAPFgYfCAUFREVTQ1IfCQUEQ09ERR8EZ2QQFQgADENvYWwgb3IgV29vZAhFbGVjdHJpYwdHYXMvT2lsCkdlb3RoZXJtYWwETm9uZQdPaWwvR2FzDlNvbGFyIEFzc2lzdGVkFQgAAjAxAjA0AjAzAjA2AjAwAjAyAjA1FCsDCGdnZ2dnZ2dnFgECBmQCAw8PFgIfCmdkZAIMD2QWAgIFDw8WAh8KZ2RkAg4PZBYOZg8WAh8HBQhGQS9IVy9TVGQCAg8WAh8HBRhDT05TVFJDT00uQ05TX1VTUkZMRF8yMDhkAgQPFgIfBwUdQ09OU1RSQ09NLkNOU19VU1JGTERfMjA4X0RFU0NkAgYPFgIfBwUHcGlja2tleWQCCA8PFgIfAQUMSGVhdGluZyBUeXBlZGQCCg8PFgIfAmdkFgQCAQ8QDxYGHwgFBURFU0NSHwkFBENPREUfBGdkEBUMAA5FbGVjdHIgQmFzZWJyZAhGQS9IVy9TVAtHZW8tVGhlcm1hbAdHcmF2aXR5CUhlYXQgcHVtcA5Ib3QgQWlyLW5vIER1YwlIb3QgV2F0ZXIJSHlkcm8gYWlyBE5vbmUHUmFkaWFudAVTdGVhbRUMAAIwNwIwNAIxMAIwMgIwOQIwMwIwNQIxMQIwMQIwOAIwNhQrAwxnZ2dnZ2dnZ2dnZ2cWAQICZAIDDw8WAh8KZ2RkAgwPZBYCAgUPDxYCHwpnZGQCDw9kFg5mDxYCHwcFB0NlbnRyYWxkAgIPFgIfBwUYQ09OU1RSQ09NLkNOU19VU1JGTERfMjA5ZAIEDxYCHwcFHUNPTlNUUkNPTS5DTlNfVVNSRkxEXzIwOV9ERVNDZAIGDxYCHwcFB3BpY2trZXlkAggPDxYCHwEFB0FDIFR5cGVkZAIKDw8WAh8CZ2QWBAIBDxAPFgYfCAUFREVTQ1IfCQUEQ09ERR8EZ2QQFQcAB0NlbnRyYWwJSGVhdCBQdW1wBE5vbmUHUGFydGlhbAdVbml0L0FDDFZhcG9yIENvb2xlchUHAAIwMwIwMgIwMQIwNgIwNAIwNRQrAwdnZ2dnZ2dnFgECAWQCAw8PFgIfCmdkZAIMD2QWAgIFDw8WAh8KZ2RkAhAPZBYOZg8WAh8HBRJTVE9SRS9TSE9QICBNREwtOTRkAgIPFgIfBwURQ09OU1RSQ09NLkNOU19PQ0NkAgQPFgIfBwUWQ09OU1RSQ09NLkNOU19PQ0NfREVTQ2QCBg8WAh8HBQdudW1lcmljZAIIDw8WAh8BBQhCbGRnIFVzZWRkAgoPZBYCAgEPEGRkFgBkAgwPDxYCHwJnZBYEAgEPDxYCHwEFElNUT1JFL1NIT1AgIE1ETC05NGRkAgMPDxYCHwpoZGQCEQ9kFg5mDxYCHwdlZAICDxYCHwcFGENPTlNUUkNPTS5DTlNfVVNSRkxEXzIxNWQCBA8WAh8HBR1DT05TVFJDT00uQ05TX1VTUkZMRF8yMTVfREVTQ2QCBg8WAh8HBQdudW1lcmljZAIIDw8WAh8BBQtUb3RhbCBSb29tc2RkAgoPZBYCAgEPEGRkFgBkAgwPDxYCHwJnZBYEAgEPDxYCHwFlZGQCAw8PFgIfCmhkZAISD2QWDmYPFgIfBwUCMDBkAgIPFgIfBwUYQ09OU1RSQ09NLkNOU19VU1JGTERfMjE2ZAIEDxYCHwcFHUNPTlNUUkNPTS5DTlNfVVNSRkxEXzIxNl9ERVNDZAIGDxYCHwcFB251bWVyaWNkAggPDxYCHwEFDFRvdGFsIEJlZHJtc2RkAgoPZBYCAgEPEGRkFgBkAgwPDxYCHwJnZBYEAgEPDxYCHwEFAjAwZGQCAw8PFgIfCmhkZAITD2QWDmYPFgIfBwUBMGQCAg8WAh8HBRhDT05TVFJDT00uQ05TX1VTUkZMRF8yMTdkAgQPFgIfBwUdQ09OU1RSQ09NLkNOU19VU1JGTERfMjE3X0RFU0NkAgYPFgIfBwUHbnVtZXJpY2QCCA8PFgIfAQULVG90YWwgQmF0aHNkZAIKD2QWAgIBDxBkZBYAZAIMDw8WAh8CZ2QWBAIBDw8WAh8BBQEwZGQCAw8PFgIfCmhkZAIUD2QWDGYPFgIfB2VkAgIPFgIfBwUYQ09OU1RSQ09NLkNOU19VU1JGTERfMjE5ZAIEDxYCHwcFHUNPTlNUUkNPTS5DTlNfVVNSRkxEXzIxOV9ERVNDZAIGDxYCHwcFB3BpY2trZXlkAggPDxYCHwEFCU5CSEQgQ29kZWRkAgoPDxYCHwJnZBYCAgEPEA8WBh8IBQVERVNDUh8JBQRDT0RFHwRnZBAVGgAFQU5ORVgKQU5ORVggQkxERwtCRUxMQSBWSVNUQQlDSCBXIEJMREcEQ09WRQtEVFcgU1EgQkxERwtFIENPVkUgQkxERwhFUkUgQkxERwhFUlcgQkxERwxGQUlSIEhBVkVOIE4JRkggUyBCTERHDUhJTEwvTE9OV0hBUkYMTCBGQUlSIEhBVkVOC00gQ09WRSBCTERHC01PUlJJUyBDT1ZFC04gSElMTCBCTERHCU5FV0ggQkxERwxORVdIQUxMVklMTEUKTk9SVEggSElMTAtQIEhJTEwgQkxERw1QUk9TUEVDVCBISUxMC1MgSElMTCBCTERHDFNDSUVOQ0UgUEFSSwpTT1VUSCBISUxMDFUgRkFJUiBIQVZFThUaAAE4BDAzMEIEMDcwMAQxODBCATkEMTQwQgQwMjBCBDEyMEIEMTMwQgQwOTAwBDExMEIBMwQwNTAwBDAxMEIEMDEwMQQxOTBCBDE2MEIEMTYwMAQxOTAwBDE1MEIEMTUwMAQyMDBCBDE2NUIEMjAwMAQwNjAwFCsDGmdnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnFgFmZAIVD2QWDmYPFgIfBwUEMzIyMGQCAg8WAh8HBRZDT05TVFJDT00uQ05TX0ZMUjFfT0NDZAIEDxYCHwcFG0NPTlNUUkNPTS5DTlNfRkxSMV9PQ0NfREVTQ2QCBg8WAh8HBQdudW1lcmljZAIIDw8WAh8BBQ4xc3QgRmxvb3IgVXNlOmRkAgoPZBYCAgEPEGRkFgBkAgwPDxYCHwJnZBYEAgEPDxYCHwEFBDMyMjBkZAIDDw8WAh8KaGRkAhYPZBYOZg8WAh8HBQxIRUFUL0FDIFBLR1NkAgIPFgIfBwUYQ09OU1RSQ09NLkNOU19VU1JGTERfMjEwZAIEDxYCHwcFHUNPTlNUUkNPTS5DTlNfVVNSRkxEXzIxMF9ERVNDZAIGDxYCHwcFB3BpY2trZXlkAggPDxYCHwEFB0hlYXQvQUNkZAIKDw8WAh8CZ2QWBAIBDxAPFgYfCAUFREVTQ1IfCQUEQ09ERR8EZ2QQFQQADEhFQVQvQUMgUEtHUw1IRUFUL0FDIFNQTElUBE5PTkUVBAACMDECMDICMDAUKwMEZ2dnZxYBAgFkAgMPDxYCHwpnZGQCDA9kFgICBQ8PFgIfCmdkZAIXD2QWDmYPFgIfBwUHTUFTT05SWWQCAg8WAh8HBRhDT05TVFJDT00uQ05TX0VYVF9XQUxMXzFkAgQPFgIfBwUdQ09OU1RSQ09NLkNOU19FWFRfV0FMTF8xX0RFU0NkAgYPFgIfBwUHcGlja2tleWQCCA8PFgIfAQUKRnJhbWUgVHlwZWRkAgoPDxYCHwJnZBYEAgEPEA8WBh8IBQVERVNDUh8JBQRDT0RFHwRnZBAVCAANRklSRVBSRiBTVEVFTAdNQVNPTlJZBE5PTkUMUkVJTkYuIENPTkNSB1NQRUNJQUwFU1RFRUwKV09PRCBGUkFNRRUIAAIwNgIwMwIwMQIwNAIwNwIwNQIwMhQrAwhnZ2dnZ2dnZxYBAgJkAgMPDxYCHwpnZGQCDA9kFgICBQ8PFgIfCmdkZAIYD2QWDmYPFgIfBwUHQVZFUkFHRWQCAg8WAh8HBRhDT05TVFJDT00uQ05TX1VTUkZMRF8yMTFkAgQPFgIfBwUdQ09OU1RSQ09NLkNOU19VU1JGTERfMjExX0RFU0NkAgYPFgIfBwUHcGlja2tleWQCCA8PFgIfAQUOQmF0aHMvUGx1bWJpbmdkZAIKDw8WAh8CZ2QWBAIBDxAPFgYfCAUFREVTQ1IfCQUEQ09ERR8EZ2QQFQYADUFCT1ZFIEFWRVJBR0UHQVZFUkFHRQlFWFRFTlNJVkUFTElHSFQETk9ORRUGAAIwMwIwMgIwNAIwMQIwMBQrAwZnZ2dnZ2cWAQICZAIDDw8WAh8KZ2RkAgwPZBYCAgUPDxYCHwpnZGQCGQ9kFg5mDxYCHwcFDlNVUy1DRUlML01OIFdMZAICDxYCHwcFGENPTlNUUkNPTS5DTlNfVVNSRkxEXzIxMmQCBA8WAh8HBR1DT05TVFJDT00uQ05TX1VTUkZMRF8yMTJfREVTQ2QCBg8WAh8HBQdwaWNra2V5ZAIIDw8WAh8BBQxDZWlsaW5nL1dhbGxkZAIKDw8WAh8CZ2QWBAIBDxAPFgYfCAUFREVTQ1IfCQUEQ09ERR8EZ2QQFQkADUNFSUwgJiBNSU4gV0wMQ0VJTCAmIFdBTExTDENFSUxJTkcgT05MWQROT05FDVNVUy1DRUlMICYgV0wOU1VTLUNFSUwvTU4gV0wOU1VTUC1DRUlMIE9OTFkHVFlQSUNBTBUJAAIwNAIwNgIwMgIwMAIwNQIwMwIwMQIwNxQrAwlnZ2dnZ2dnZ2cWAQIGZAIDDw8WAh8KZ2RkAgwPZBYCAgUPDxYCHwpnZGQCGg9kFg5mDxYCHwcFB0FWRVJBR0VkAgIPFgIfBwUYQ09OU1RSQ09NLkNOU19VU1JGTERfMjEzZAIEDxYCHwcFHUNPTlNUUkNPTS5DTlNfVVNSRkxEXzIxM19ERVNDZAIGDxYCHwcFB3BpY2trZXlkAggPDxYCHwEFC1Jvb21zL1BydG5zZGQCCg8PFgIfAmdkFgQCAQ8QDxYGHwgFBURFU0NSHwkFBENPREUfBGdkEBUEAA1BQk9WRSBBVkVSQUdFB0FWRVJBR0UFTElHSFQVBAACMDMCMDICMDEUKwMEZ2dnZxYBAgJkAgMPDxYCHwpnZGQCDA9kFgICBQ8PFgIfCmdkZAIbD2QWDmYPFgIfBwUCMTBkAgIPFgIfBwUZQ09OU1RSQ09NLkNOU19XQUxMX0hFSUdIVGQCBA8WAh8HBRlDT05TVFJDT00uQ05TX1dBTExfSEVJR0hUZAIGDxYCHwcFB251bWVyaWNkAggPDxYCHwEFC1dhbGwgSGVpZ2h0ZGQCCg9kFgICAQ8QZGQWAGQCDA8PFgIfAmdkFgQCAQ8PFgIfAQUCMTBkZAIDDw8WAh8KaGRkAhwPZBYOZg8WAh8HZWQCAg8WAh8HBRhDT05TVFJDT00uQ05TX1VTUkZMRF8yMTRkAgQPFgIfBwUdQ09OU1RSQ09NLkNOU19VU1JGTERfMjE0X0RFU0NkAgYPFgIfBwUHbnVtZXJpY2QCCA8PFgIfAQULJSBDb21uIFdhbGxkZAIKD2QWAgIBDxBkZBYAZAIMDw8WAh8CZ2QWBAIBDw8WAh8BZWRkAgMPDxYCHwpoZGQCCQ9kFgICAQ8PFgIfAwVAaHR0cDovL2ltYWdlcy52Z3NpLmNvbS9waG90b3MvTmV3SGF2ZW5DVFBob3Rvcy8vXDAwXDA0XDYyLzA3LkpQR2QWAmYPDxYCHwAFQGh0dHA6Ly9pbWFnZXMudmdzaS5jb20vcGhvdG9zL05ld0hhdmVuQ1RQaG90b3MvL1wwMFwwNFw2Mi8wNy5KUEdkZAILD2QWBAIBDw8WAh8ABUhodHRwOi8vaW1hZ2VzLnZnc2kuY29tL3Bob3Rvcy9OZXdIYXZlbkNUUGhvdG9zLy9Ta2V0Y2hlcy8xOTI0OF8yMDcyMC5qcGdkZAIDDw8WAh8CaGRkAg0PPCsAEQMADxYEHwRnHwUCA2QBEBYAFgAWAAwUKwAAFgJmD2QWCAIBD2QWCGYPDxYCHwEFA0JBU2RkAgEPDxYCHwEFC0ZpcnN0IEZsb29yZGQCAg9kFgJmDxUBBTMsNjY0ZAIDD2QWAmYPFQEFMyw2NjRkAgIPZBYIZg8PFgIfAQUDRlNUZGQCAQ8PFgIfAQURVXRpbGl0eSwgRmluaXNoZWRkZAICD2QWAmYPFQEDMTMwZAIDD2QWAmYPFQEBMGQCAw9kFghmDw8WAh8BBQNVQk1kZAIBDw8WAh8BBRNVbmZpbmlzaGVkIEJhc2VtZW50ZGQCAg9kFgJmDxUBBTMsNjY0ZAIDD2QWAmYPFQEBMGQCBA9kFgQCAg9kFgJmDxUBBTcsNDU4ZAIDD2QWAmYPFQEFMyw2NjRkAmMPZBYCAgEPPCsAEQMADxYEHwRnHwVmZAEQFgQCAgIDAgYCCBYEPCsABQEAFgIfAmg8KwAFAQAWAh8CaDwrAAUBABYCHwJoPCsABQEAFgIfAmgWBGZmZmYMFCsAAGQCZQ8PFgIfAmhkFgICAQ9kFgICAQ9kFgZmD2QWAgIBD2QWAmYPDxYCHwEFBDMyMjBkZAIBD2QWAgIBD2QWAmYPDxYCHwEFElNUT1JFL1NIT1AgIE1ETC05NGRkAgIPZBYCAgEPZBYCZg8PFgIfAQUEMC4zM2RkAmcPZBYGAgEPZBYCAgEPZBYMZg9kFgICAQ9kFgJmDw8WAh8BBQQzMjIwZGQCAQ9kFgICAQ9kFgJmDw8WAh8BBRJTVE9SRS9TSE9QICBNREwtOTRkZAICD2QWBGYPZBYCZg8PFgIfAQUEWm9uZWRkAgEPZBYCZg8PFgIfAQUGQkEvUk0yZGQCAw9kFgICAQ9kFgJmDw8WAh8BBQNDRzFkZAIED2QWBGYPZBYCZg8PFgIfAQUNQWx0IExhbmQgQXBwcmRkAgEPZBYCZg8PFgIfAQUCTm9kZAIFD2QWBGYPZBYCZg8PFgIfAQUIQ2F0ZWdvcnlkZAIBD2QWAmYPDxYCHwFkZGQCAg88KwARAwAPFgIfAmhkARAWABYAFgAMFCsAAGQCBA9kFgICAQ9kFhBmD2QWAgIBD2QWAmYPDxYCHwEFBDAuMzNkZAIBDw8WAh8CaGQWAgIBD2QWAmYPDxYCHwEFBTE0NTY1ZGQCAg9kFgICAQ9kFgJmDw8WAh8BBQEwZGQCAw9kFgICAQ9kFgJmDw8WAh8BBQEwZGQCBA9kFgICAQ9kFgJmDw8WAh8BBQckNDAsMTEwZGQCBQ8PFgIfAmhkZAIGDw8WAh8CaGQWAgIBD2QWAmYPDxYCHwEFATBkZAIHD2QWAgIBD2QWAmYPDxYCHwEFByQ1NywzMDBkZAJpD2QWAgIBDzwrABEDAA8WBB8EZx8FAgFkARAWAgIGAggWAjwrAAUBABYCHwJoPCsABQEAFgIfAmgWAmZmDBQrAAAWAmYPZBYEAgEPZBYSZg8PFgIfAQUEUEFWMWRkAgEPDxYCHwEFDlBBVklORy1BU1BIQUxUZGQCAg8PFgIfAQUGJm5ic3A7ZGQCAw8PFgIfAQUGJm5ic3A7ZGQCBA8PFgIfAQUJMjAwMCBTLkYuZGQCBQ8PFgIfAQUGJDQsMTAwZGQCBg8PFgIfAQUGJDIsODcwZGQCBw8PFgIfAQUBMWRkAggPDxYCHwEFBiZuYnNwO2RkAgIPDxYCHwJoZGQCag9kFgQCAQ88KwARAwAPFgQfBGcfBQIDZAEQFgUCAQICAgMCBAIFFgU8KwAFAQAWAh8CaDwrAAUBABYCHwJoPCsABQEAFgIfAmg8KwAFAQAWAh8CZzwrAAUBABYCHwJnFgVmZmZmZgwUKwAAFgJmD2QWCAIBD2QWDmYPDxYCHwEFBDIwMTZkZAIBDw8WAh8BBQgkMjQxLDgwMGRkAgIPDxYCHwEFAiQwZGQCAw8PFgIfAQUGJDQsMTAwZGQCBA8PFgIfAQUIJDI0NSw5MDBkZAIFDw8WAh8BBQckNTcsMzAwZGQCBg8PFgIfAQUIJDMwMywyMDBkZAICD2QWDmYPDxYCHwEFBDIwMTVkZAIBDw8WAh8BBQgkMjM1LDgwMGRkAgIPDxYCHwEFAiQwZGQCAw8PFgIfAQUGJDIsMDAwZGQCBA8PFgIfAQUIJDIzNyw4MDBkZAIFDw8WAh8BBQckNTEsNDAwZGQCBg8PFgIfAQUIJDI4OSwyMDBkZAIDD2QWDmYPDxYCHwEFBDIwMTRkZAIBDw8WAh8BBQgkMjM1LDgwMGRkAgIPDxYCHwEFAiQwZGQCAw8PFgIfAQUGJDIsMDAwZGQCBA8PFgIfAQUIJDIzNyw4MDBkZAIFDw8WAh8BBQckNTEsNDAwZGQCBg8PFgIfAQUIJDI4OSwyMDBkZAIEDw8WAh8CaGRkAgMPPCsAEQMADxYEHwRnHwUCA2QBEBYHAgECAgIDAgQCBQIHAggWBzwrAAUBABYCHwJoPCsABQEAFgIfAmg8KwAFAQAWAh8CaDwrAAUBABYCHwJnPCsABQEAFgIfAmc8KwAFAQAWBB8GBRJDbGVhbiAmIEdyZWVuIExhbmQfAmg8KwAFAQAWBB8GBRNDbGVhbiAmIEdyZWVuIFRvdGFsHwJoFgdmZmZmZmZmDBQrAAAWAmYPZBYKZg9kFgQCBw8PFgIfAQUSQ2xlYW4gJiBHcmVlbiBMYW5kZGQCCA8PFgIfAQUTQ2xlYW4gJiBHcmVlbiBUb3RhbGRkAgEPZBYSZg8PFgIfAQUEMjAxNmRkAgEPDxYCHwEFCCQxNjksMjYwZGQCAg8PFgIfAQUCJDBkZAIDDw8WAh8BBQYkMiw4NzBkZAIEDw8WAh8BBQgkMTcyLDEzMGRkAgUPDxYCHwEFByQ0MCwxMTBkZAIGDw8WAh8BBQgkMjEyLDI0MGRkAgcPDxYCHwEFAiQwZGQCCA8PFgIfAQUIJDE3MiwxMzBkZAICD2QWEmYPDxYCHwEFBDIwMTVkZAIBDw8WAh8BBQgkMTY1LDA2MGRkAgIPDxYCHwEFAiQwZGQCAw8PFgIfAQUGJDEsNDAwZGQCBA8PFgIfAQUIJDE2Niw0NjBkZAIFDw8WAh8BBQckMzUsOTgwZGQCBg8PFgIfAQUIJDIwMiw0NDBkZAIHDw8WAh8BBQIkMGRkAggPDxYCHwEFCCQxNjYsNDYwZGQCAw9kFhJmDw8WAh8BBQQyMDE0ZGQCAQ8PFgIfAQUIJDE2NSwwNjBkZAICDw8WAh8BBQIkMGRkAgMPDxYCHwEFBiQxLDQwMGRkAgQPDxYCHwEFCCQxNjYsNDYwZGQCBQ8PFgIfAQUHJDM1LDk4MGRkAgYPDxYCHwEFCCQyMDIsNDQwZGQCBw8PFgIfAQUCJDBkZAIIDw8WAh8BBQgkMTY2LDQ2MGRkAgQPDxYCHwJoZGQCbA8PFgIfAmhkZAJuDw8WAh8CaGQWAgIBDzwrABECARAWABYAFgAMFCsAAGQCbw8PFgIfAmhkFgICAQ88KwARAgEQFgAWABYADBQrAABkAnEPFgIfAmhkAnIPDxYCHwJoZBYEAgEPFgIfAQU6IE1ibHUgOiAzMDEvICAwMDk3LyAgMDYwMDAvICAvICBMb2NhdGlvbiA6IDYyMCBDT05HUkVTUyBBVmQCAw8QZGQWAWZkAnYPDxYEHwMFEk1hcC5hc3B4P3BpZD0xOTI0OB8BBRRHbyBUbyBWaXNpb24gR0lTIE1hcGRkAngPDxYEHwMFN2h0dHA6Ly9tYXBzLmdvb2dsZS5jb20vP3E9NjIwIENPTkdSRVNTIEFWIE5FVyBIQVZFTiwgQ1QfAQURR28gVG8gR29vZ2xlIE1hcHNkZAJ6Dw8WBB8DBTZodHRwOi8vbWFwcy55YWhvby5jb20vI3E9NjIwIENPTkdSRVNTIEFWIE5FVyBIQVZFTiwgQ1QfAQUQR28gVG8gWWFob28gTWFwc2RkAnwPDxYEHwMFOWh0dHA6Ly93d3cuYmluZy5jb20vbWFwcy8/cT02MjAgQ09OR1JFU1MgQVYgTkVXIEhBVkVOLCBDVB8BBRlHbyBUbyBNaWNyb3NvZnQgQmluZyBNYXBzZGQYDgUmY3RsMDAkTWFpbkNvbnRlbnQkZ3JkSGlzdG9yeVZhbHVlc0FwcHIPPCsADAEIAgFkBSBjdGwwMCRNYWluQ29udGVudCRncmRTYWxlc0Z1dHVyZQ9nZAUeY3RsMDAkTWFpbkNvbnRlbnQkY3RsMDEkZ3JkQ25zDzwrAAwBCAIBZAUeY3RsMDAkTWFpbkNvbnRlbnQkY3RsMDEkZ3JkU3ViDzwrAAwBCAIBZAUdY3RsMDAkTWFpbkNvbnRlbnQkZ3JkU3BjbExhbmQPZ2QFF2N0bDAwJE1haW5Db250ZW50JGdyZE9iDzwrAAwBCAIBZAUXY3RsMDAkTWFpbkNvbnRlbnQkZ3JkWGYPPCsADAEIZmQFHWN0bDAwJE1haW5Db250ZW50JGdyZFZpc2l0SHN0D2dkBRpjdGwwMCRNYWluQ29udGVudCRncmRTYWxlcw88KwAMAQgCAWQFJWN0bDAwJE1haW5Db250ZW50JGdyZEN1cnJlbnRWYWx1ZUFzbXQPPCsADAEIAgFkBR9jdGwwMCRNYWluQ29udGVudCRncmRXZWJBZGRyZXNzD2dkBSZjdGwwMCRNYWluQ29udGVudCRncmRIaXN0b3J5VmFsdWVzQXNtdA88KwAMAQgCAWQFHGN0bDAwJE1haW5Db250ZW50JGdyZEV4ZW1wdHMPZ2QFJWN0bDAwJE1haW5Db250ZW50JGdyZEN1cnJlbnRWYWx1ZUFwcHIPPCsADAEIAgFkE34gcuBywJ5W4I3rdNUz3iD7yzagJVBlqtwEuhM1oz0=" />
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="8EDD3B36" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAAppaIr+61DQODl40OPJhinFkbuf1hRDuGcmpmDnwlR4H2hEswt2IwwGgDGWkqbEkOLBwKci2Y9mhaGAkBHO6ZPX0X2TOR8xYVzUM6sQg2zZNhV4jxT2Rk2ilkHFbILydgPK8WwscoIA0ALz5p3xLHveYS3tzgjqNBhuN3N6iN6aPex6kw1/vFkzkDvppR2Punkrvon2B5GXy+98hBVOKzNGBsB3tb5DvGuKKJlukFz/DidEGGPFaLaKjE3qQexyvjI=" />
+<div class="inner-page">
+   <div class="inner-inner-page">
+      <div class="page front">
+      
+         <div class="topBorder hideMeInPrint" >
+            <img alt="" id="HeaderImage" class="hideMeInPrint" src='/NewHavenCT/Images/top-border.png' width="955px;"  />
+         </div>
+         
+         <div class="header-images hideMeInPrint">
+           <div id="panBannerDefault">
+	
+                        <table width="99.5%" >
+                            <tr style="height: 75px;">
+                                <td style="" >
+                                    <span >
+                                        <img id="imgTownSeal" src="Images/newhaven_ct.jpg" height="75" />
+                                    </span>
+                                    <span class="myoutercontainer" style="padding-top: 15px;margin-top: 15px;vertical-align: middle; ">
+                                        <span id="lblTownName" class="myinnercontainer" style="display:inline-block;"><b><font size="7">New Haven, CT</font></b></span>
+                                    </span>
+                                </td>
+                                <td align="right">
+                                    <span class="header-right-image" >
+                                        <input type="image" name="ctl00$ImageButton1" id="imgVisionImageButton" 
+                                        src='/NewHavenCT/Images/visiongovernmentsolutionslogo.png' />
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+                    
+</div>
+                    
+         </div>
+                 
+          
+ 
+         <div style="width:100%;" class="hideMeInPrint">
+             
+            
+            <div id="panMenu">
+	
+                <div class="menu hideMeInPrint" id="NavigationMenu" style="float: left;  background-image:url('/NewHavenCT/Images/main-menu-backgnd.png'); width:99.5%">
+	            <ul class="level1" style="position: relative; width: 100%   ; float: left;" role="menubar">
+		            <li  role="menuitem" style="position: relative; float: left;">
+                            <a id="lnkSearch" class="level1" href="Search.aspx">Search</a>    
+                    </li>
+                    <li  role="menuitem" style="position: relative; float: left;">
+                        <a id="lnkStreets" class="level1" href="Streets.aspx">Street Listing</a>    
+                    </li>
+                    <div id="panSales">
+		
+                        <li  role="menuitem" style="position: relative; float: left;">
+                            <a id="lnkSales" class="level1" href="Sales.aspx">Sales Search</a>    
+                        </li>
+                    
+	</div>
+                    
+                    <div id="pnlMap">
+		
+                    <li  role="menuitem" id="MapMenuItem" style="position: relative; float: left;" >
+                        <a class="level1" href="Map.aspx?pid=19248">Map</a>
+                    </li>
+                    
+	</div>
+                    
+                    
+                    <div id="panFeedback">
+		
+                    <li  role="menuitem" id="FeedbackPage" style="position: relative; float: left;">
+                        <a id="lnkFeedback" class="level1" href="Feedback.aspx">Feedback</a>    
+                    </li>
+                    
+	</div>
+                    <li  role="menuitem" id="BackButton" style="position: relative; float: left;">
+                        <a id="lnkBack">Back</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li  role="menuitem" id="Li2" style="position: relative; float: left;">
+                        <a id="lnkLogOut" class="level1" href="Default.aspx?lo=T">Home</a>    
+                    </li>
+                    
+	            </ul>
+            </div>
+            
+</div>
+                       
+        </div>
+          <input name="ctl00$hdnKeepAlive" type="hidden" id="hdnKeepAlive" value="Yes" />
+ 
+  
+            
+        <div class="page clientservices-appraisal">
+            <div class="main-content">
+                <div style="width:99.5%">
+                
+    <style>
+        .pagebreak {
+            page-break-before: always;
+        }
+        .floatBtn {
+            margin: 5px;
+        }
+          .fLeft {
+            float: left;width: 45%;
+        }
+    </style>
+    
+    <div id="MainContent_panParcel">
+	
+    
+</div>
+    <div class="ui-widget">
+        <h3>
+            </h3>
+    </div>
+    <div class="ui-widget" id="tabs">
+        <span id="legend"></span>&nbsp;
+        <div id="tabs-1" style="float: none; top: -50px;">
+            
+            <fieldset>
+                <legend><span style="float: none; font-size: 1.4em;">
+                    <span id="MainContent_lblTab1Title">620 CONGRESS AV</span>
+                </span>
+                    <div style="float: right" class="btn-toolbar hideMeInPrint">
+                        
+                        <div class="btn-group">
+                            
+                            
+                            
+                            <a id="similiarParcelSales" class="floatBtn btn btn-primary" data-toggle="tooltip" title="Search for similiar sales" style="">
+            <i class="icon-search icon-white"></i>&nbsp;Sales
+                            </a>
+                            <span style="" id="printButton" class="floatBtn btn btn-primary" data-toggle="tooltip"
+                                title="Print this page"><i class="icon-print icon-white"></i>&nbsp;Print </span>
+                            
+                               
+                                
+                            
+                            <span style="" id="showMapLinks" class="floatBtn btn btn-info" data-toggle="tooltip"
+                                title="View mapping options"><i class="icon-map-marker icon-white"></i>&nbsp;Map
+                                It </span>
+                                
+                            
+                        </div>
+                    </div>
+                    <span style="float: right; width: 100%"><span></span><span></span><span></span></span>
+                </legend>
+                <div style="clear: both">
+                </div>
+                <br />
+                <div class="row-fluid" style="font-size: 16px;">
+                    
+                        <dl id="MainContent_rowLocation" class="dl-horizontal fLeft">
+                            <dt>Location</dt>
+                            <dd>
+                                <span id="MainContent_lblLocation">620 CONGRESS AV</span></dd>
+                        </dl>
+                        <div>
+                            
+                        </div>
+                        <dl id="MainContent_rowMblu" class="dl-horizontal fLeft">
+                            <dt>
+                                <span id="MainContent_lblMbluLabel">Mblu</span></dt>
+                            <dd>
+                                <span id="MainContent_lblMblu">301/  0097/  06000/  / </span></dd>
+                        </dl>
+                        <dl id="MainContent_rowAcctNum" class="dl-horizontal fLeft">
+                            <dt>
+                                <span id="MainContent_lblAcctNumLabel">Acct#</span></dt>
+                            <dd>
+                                <span id="MainContent_lblAcctNum"> </span></dd>
+                        </dl>
+                        <dl id="MainContent_rowOwnGeneral" class="dl-horizontal fLeft">
+                            <dt>Owner</dt>
+                            <dd>
+                                <span id="MainContent_lblGenOwner">COLON HECTOR</span></dd>
+                        </dl>
+                      
+                        
+                     
+                        
+                        
+                        
+                        
+                      
+                      <dl id="MainContent_rowAssessment" class="dl-horizontal fLeft">
+                            <dt>
+                                <span id="MainContent_lblGenAssessmentLabel">Assessment</span></dt>
+                            <dd>
+                                <span id="MainContent_lblGenAssessment">$212,240</span></dd>
+                        </dl>
+ 
+                       <dl id="MainContent_rowAppraisal" class="dl-horizontal fLeft">
+                            <dt>
+                                <span id="MainContent_lblGenAppraisalLabel">Appraisal</span></dt>
+                            <dd>
+                                <span id="MainContent_lblGenAppraisal">$303,200</span></dd>
+                        </dl>
+                       
+                        <dl id="MainContent_rowPid" class="dl-horizontal fLeft">
+                            <dt>
+                                <span id="MainContent_lblPidLabel">PID</span></dt>
+                            <dd>
+                                <span id="MainContent_lblPid">19248</span></dd>
+                        </dl>
+                        <dl id="MainContent_rowBCnt" class="dl-horizontal fLeft">
+                            <dt>Building Count</dt>
+                            <dd>
+                                <span id="MainContent_lblBldCount">1</span></dd>
+                        </dl>
+                        
+                    
+                      
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                    
+                    
+                    
+                    
+                    
+                    
+					
+					 
+                    
+					
+					 
+                    
+                    
+                    
+                </div>
+                <div style="clear: both;"></div>
+                
+            </fieldset>
+        </div>
+        <div id="tabs-3">
+            <div id="MainContent_currentVal">
+	
+                <fieldset>
+                    <legend>Current Value</legend><span style="min-height: 5px; font-size: .2em;"></span>
+                    <div>
+                        <div>
+		<table class="GridViewStyle" cellspacing="0" rules="all" witdh="100%" border="1" id="MainContent_grdCurrentValueAppr" width="100%">
+			<caption>
+				Appraisal
+			</caption><tr class="HeaderStyle">
+				<th scope="col">Valuation Year</th><th scope="col">Improvements</th><th scope="col">Land</th><th scope="col">Total</th>
+			</tr><tr class="RowStyle">
+				<td>2016</td><td align="right">$245,900</td><td align="right">$57,300</td><td align="right">$303,200</td>
+			</tr>
+		</table>
+	</div>
+                        <div>
+		<table class="GridViewStyle" cellspacing="0" rules="all" witdh="100%" border="1" id="MainContent_grdCurrentValueAsmt" width="100%">
+			<caption>
+				Assessment
+			</caption><tr class="HeaderStyle">
+				<th scope="col">Valuation Year</th><th scope="col">Improvements</th><th scope="col">Land</th><th scope="col">Total</th>
+			</tr><tr class="RowStyle">
+				<td>2016</td><td align="right">$172,130</td><td align="right">$40,110</td><td align="right">$212,240</td>
+			</tr>
+		</table>
+	</div>
+                    </div>
+                </fieldset>
+            
+</div>
+        </div>
+        
+        
+        <div id="tabs-2">
+            <div id="MainContent_panCurOwn">
+	
+                <br />
+                <fieldset>
+                    <legend>
+                        <span id="MainContent_lblTab2Title"><b>Owner of Record</b></span></legend>
+                    <div style="float: left; width: 50%">
+                        <table>
+		<tr id="MainContent_rowOwn">
+			<td class="plabel">Owner</td><td class="data"><span id="MainContent_lblOwner">COLON HECTOR</span></td>
+		</tr><tr id="MainContent_rowCoOwn">
+			<td class="plabel"><span id="MainContent_lblLabelCoOwner">Co-Owner</span></td><td class="data"><span id="MainContent_lblCoOwner"></span></td>
+		</tr><tr id="MainContent_rowOwnAddr">
+			<td class="plabel">Address</td><td class="data"><span id="MainContent_lblAddr1">620 CONGRESS AV<br>NEW HAVEN, CT 06519</span></td>
+		</tr>
+	</table></div><div style="float: left; width: 50%">
+                        <table id="MainContent_Table1">
+		<tr>
+			<td class="plabel">Sale Price</td><td class="data"><span id="MainContent_lblPrice">$0</span></td>
+		</tr><tr id="MainContent_rowCertificate">
+			<td class="plabel"><span id="MainContent_lblLabelCertificate">Certificate</span></td><td class="data"><span id="MainContent_lblCertificate"></span></td>
+		</tr><tr id="MainContent_rowBp">
+			<td class="plabel">Book & Page </td><td class="data"><span id="MainContent_lblBp">  6939/ 126</span></td>
+		</tr><tr id="MainContent_rowBook">
+			<td class="plabel"><span id="MainContent_lblBookLabel"></span></td><td class="data"><span id="MainContent_lblBook"></span></td>
+		</tr><tr id="MainContent_rowPage">
+			<td class="plabel"><span id="MainContent_lblPageLabel"></span></td><td class="data"><span id="MainContent_lblPage"></span></td>
+		</tr><tr>
+			<td class="plabel">Sale Date</td><td class="data"><span id="MainContent_lblSaleDate">09/15/2004</span></td>
+		</tr><tr id="MainContent_rowInstrument">
+			<td class="plabel"><span id="MainContent_lblLabelInstrument">Instrument</span></td><td class="data"><span id="MainContent_lblInstrument">25</span></td>
+		</tr>
+	</table></div></fieldset> 
+</div><div id="MainContent_panSlh">
+	
+                <br />
+                <fieldset>
+                    <legend>Ownership History</legend><div>
+		<table class="GridViewStyle" cellspacing="0" witdh="100%" id="MainContent_grdSales" width="100%">
+			<caption>
+				Ownership History
+			</caption><tr class="HeaderStyle">
+				<th scope="col">Owner</th><th scope="col">Sale Price</th><th scope="col">Certificate</th><th scope="col">Book &amp; Page</th><th scope="col">Instrument</th><th scope="col">Sale Date</th>
+			</tr><tr class="RowStyle">
+				<td>COLON HECTOR</td><td align="right">$0</td><td align="center">&nbsp;</td><td align="center">  6939/ 126</td><td align="center">25</td><td align="center">09/15/2004</td>
+			</tr><tr class="AltRowStyle">
+				<td>MARESCA ROBERT A-TRUSTEE </td><td align="right">$0</td><td align="center">&nbsp;</td><td align="center">  4434/  56</td><td align="center">&nbsp;</td><td align="center">12/04/1991</td>
+			</tr>
+		</table>
+	</div>
+                </fieldset>
+                           
+</div></div><div id="tabs-4">
+            <div class="container">
+                <div id="MainContent_panBldg">
+	
+                    <br />
+                    <fieldset>
+                        <legend>Building Information</legend></fieldset> <div style="padding-left: 15px;">
+                        
+<script type="text/javascript">
+</script>
+<div id="accordion" style="width: 100%;">
+    <fieldset>
+        <legend>
+            <span id="MainContent_ctl01_lblHeading">Building 1 : Section 1</span>
+        </legend>
+        <br />
+        <div>
+            <div style="float: left; width: 50%;">
+                <table id="MainContent_ctl01_tblBldg" style="width: 80%;">
+		<tr id="MainContent_ctl01_rowAYB">
+			<td class="plabel" style="width: 50%;">
+                    Year Built:
+                        </td><td class="data"><span id="MainContent_ctl01_lblYearBuilt">1960</span></td>
+		</tr><tr id="MainContent_ctl01_rowBuldgArea">
+			<td class="plabel">
+                    Living Area:
+                        </td><td class="data"><span id="MainContent_ctl01_lblBldArea">3,664</span></td>
+		</tr><tr id="MainContent_ctl01_rowRcn">
+			<td class="plabel">
+                    Replacement Cost:
+                        </td><td class="data"><span id="MainContent_ctl01_lblRcn">$403,035</span></td>
+		</tr><tr id="MainContent_ctl01_rowDprPct">
+			<td class="plabel">
+                    Building Percent Good:
+                        </td><td class="data"><span id="MainContent_ctl01_lblPctGood">60</span></td>
+		</tr><tr id="MainContent_ctl01_rowRcnld">
+			<td class="plabel">
+                    Replacement Cost<br />
+                    Less Depreciation:
+                        </td><td class="data">
+                            <br />
+                            <span id="MainContent_ctl01_lblRcnld">$241,800</span></td>
+		</tr>
+	</table>
+                <div id="MainContent_ctl01_panView">
+		
+                    <div>
+			<table class="GridViewStyle" cellspacing="0" rules="all" witdh="100%" border="1" id="MainContent_ctl01_grdCns" width="100%">
+				<caption>
+					Building Attributes
+				</caption><tr class="HeaderStyle">
+					<th scope="col">Field</th><th scope="col">Description</th>
+				</tr><tr class="RowStyle">
+					<td>STYLE</td><td>Retail&lt;10th sf</td>
+				</tr><tr class="AltRowStyle">
+					<td>MODEL</td><td>Commercial</td>
+				</tr><tr class="RowStyle">
+					<td>Grade</td><td>Average</td>
+				</tr><tr class="AltRowStyle">
+					<td>Stories:</td><td>1</td>
+				</tr><tr class="RowStyle">
+					<td>Occupancy</td><td>1</td>
+				</tr><tr class="AltRowStyle">
+					<td>Exterior Wall 1</td><td>Concr/Cinder</td>
+				</tr><tr class="RowStyle">
+					<td>Exterior Wall 2</td><td>&nbsp;</td>
+				</tr><tr class="AltRowStyle">
+					<td>Roof Structure</td><td>Flat</td>
+				</tr><tr class="RowStyle">
+					<td>Roof Cover</td><td>T&amp;G/Rubber</td>
+				</tr><tr class="AltRowStyle">
+					<td>Interior Wall 1</td><td>Drywall/Plaste</td>
+				</tr><tr class="RowStyle">
+					<td>Interior Wall 2</td><td>&nbsp;</td>
+				</tr><tr class="AltRowStyle">
+					<td>Interior Floor 1</td><td>Vinyl/Asphalt</td>
+				</tr><tr class="RowStyle">
+					<td>Interior Floor 2</td><td>&nbsp;</td>
+				</tr><tr class="AltRowStyle">
+					<td>Heating Fuel</td><td>Oil/Gas</td>
+				</tr><tr class="RowStyle">
+					<td>Heating Type</td><td>FA/HW/ST</td>
+				</tr><tr class="AltRowStyle">
+					<td>AC Type</td><td>Central</td>
+				</tr><tr class="RowStyle">
+					<td>Bldg Use</td><td>STORE/SHOP  MDL-94</td>
+				</tr><tr class="AltRowStyle">
+					<td>Total Rooms</td><td>&nbsp;</td>
+				</tr><tr class="RowStyle">
+					<td>Total Bedrms</td><td>00</td>
+				</tr><tr class="AltRowStyle">
+					<td>Total Baths</td><td>0</td>
+				</tr><tr class="RowStyle">
+					<td>NBHD Code</td><td>&nbsp;</td>
+				</tr><tr class="AltRowStyle">
+					<td>1st Floor Use:</td><td>3220</td>
+				</tr><tr class="RowStyle">
+					<td>Heat/AC</td><td>HEAT/AC PKGS</td>
+				</tr><tr class="AltRowStyle">
+					<td>Frame Type</td><td>MASONRY</td>
+				</tr><tr class="RowStyle">
+					<td>Baths/Plumbing</td><td>AVERAGE</td>
+				</tr><tr class="AltRowStyle">
+					<td>Ceiling/Wall</td><td>SUS-CEIL/MN WL</td>
+				</tr><tr class="RowStyle">
+					<td>Rooms/Prtns</td><td>AVERAGE</td>
+				</tr><tr class="AltRowStyle">
+					<td>Wall Height</td><td>10</td>
+				</tr><tr class="RowStyle">
+					<td>% Comn Wall</td><td>&nbsp;</td>
+				</tr>
+			</table>
+		</div>
+                
+	</div>
+                
+            </div>
+            <div style="float: right; width: 45%;">
+                <div id="MainContent_ctl01_panPhoto">
+		
+                    <fieldset>
+                        <legend>Building Photo</legend>
+                        <a id="MainContent_ctl01_imgPhotoLink" class="thickbox" href="http://images.vgsi.com/photos/NewHavenCTPhotos//\00\04\62/07.JPG"><img id="MainContent_ctl01_imgPhoto" Title="Building Photo" src="http://images.vgsi.com/photos/NewHavenCTPhotos//\00\04\62/07.JPG" alt="Building Photo" height="288" width="384" /></a>
+                    </fieldset>
+                
+	</div>
+                <div id="MainContent_ctl01_panSketch">
+		
+                    <fieldset>
+                        <legend>Building Layout</legend>
+                        <img id="MainContent_ctl01_imgSketch" class="skecthImage" Title="Building Layout" src="http://images.vgsi.com/photos/NewHavenCTPhotos//Sketches/19248_20720.jpg" alt="Building Layout" />
+                        
+                    </fieldset>
+                
+	</div>
+                <fieldset>
+                    <div>
+		<table class="GridViewStyle" cellspacing="0" rules="all" witdh="100%" border="1" id="MainContent_ctl01_grdSub" width="100%">
+			<caption>
+				Building Sub-Areas (sq ft)
+			</caption><tr class="HeaderStyle">
+				<th scope="col">Code</th><th scope="col">Description</th><th scope="col">Gross<br>Area</th><th scope="col">Living<br>Area</th>
+			</tr><tr class="RowStyle">
+				<td>BAS</td><td>First Floor</td><td align="right">
+                                    3,664
+                                </td><td align="right">
+                                    3,664
+                                </td>
+			</tr><tr class="AltRowStyle">
+				<td>FST</td><td>Utility, Finished</td><td align="right">
+                                    130
+                                </td><td align="right">
+                                    0
+                                </td>
+			</tr><tr class="RowStyle">
+				<td>UBM</td><td>Unfinished Basement</td><td align="right">
+                                    3,664
+                                </td><td align="right">
+                                    0
+                                </td>
+			</tr><tr class="FooterStyle">
+				<td>&nbsp;</td><td>&nbsp;</td><td align="right">
+                                    7,458
+                                </td><td align="right">
+                                    3,664
+                                </td>
+			</tr>
+		</table>
+	</div>
+                </fieldset>
+                
+            </div>
+     
+            <div style="clear: both">
+</div>
+      
+     
+        </div>
+    </fieldset>
+</div>
+                    </div>
+                
+</div>
+            </div>
+        </div>
+        <div id="tabs-5">
+            <div class="container">
+                <div id="MainContent_panXF">
+	
+                    <br />
+                    <fieldset>
+                        <legend>Extra Features</legend><div>
+		<table class="GridViewStyle" cellspacing="0" rules="all" witdh="100%" border="1" id="MainContent_grdXf" width="100%">
+			<caption>
+				Extra Features
+			</caption><tr class="EmptyRowStyle">
+				<td colspan="9">
+                                <div style="width: 100%; text-align: center;">
+                                    <br />
+                                    <span style="width: 100%; text-align: center;">No Data for Extra Features</span> <br /><br /></div></td>
+			</tr>
+		</table>
+	</div>
+                    </fieldset>
+                               
+</div></div></div><div id="tabs-6">
+            <div class="container">
+                </div><div class="container">
+                <div id="MainContent_panLand">
+	
+                    <br />
+                    <fieldset>
+                        <legend>Land</legend><div style="width: 50%; float: left;">
+                            <div id="MainContent_panLandUse">
+		
+                                <fieldset>
+                                    <legend>Land Use </legend><table id="MainContent_tblLandUse">
+			<tr id="MainContent_rowUseCode">
+				<td class="plabel">Use Code</td><td class="data"><span id="MainContent_lblUseCode">3220</span></td>
+			</tr><tr id="MainContent_rowUseCodeDescript">
+				<td class="plabel">Description</td><td class="data"><span id="MainContent_lblUseCodeDescription">STORE/SHOP  MDL-94</span>
+                                                <span title="Legend" style="float: right; cursor: pointer" id="LegendLnd" class="ui-icon ui-icon-info"></span>&nbsp;
+                                            </td>
+			</tr><tr id="MainContent_rowZone">
+				<td class="plabel"><span id="MainContent_lblZoneLbl">Zone</span></td><td class="data"><span id="MainContent_lblZone">BA/RM2</span></td>
+			</tr><tr id="MainContent_rowNbhd">
+				<td class="plabel">Neighborhood</td><td class="data"><span id="MainContent_lblNbhd">CG1</span></td>
+			</tr><tr id="MainContent_rowAltApproved">
+				<td class="plabel"><span id="MainContent_lblAltApprovedLabel">Alt Land Appr</span></td><td class="data"><span id="MainContent_lblAltApproved">No</span></td>
+			</tr><tr id="MainContent_rowLndCategory">
+				<td class="plabel"><span id="MainContent_lblLndCategoryLabel">Category</span></td><td class="data"><span id="MainContent_lblLndCategory"></span></td>
+			</tr>
+		</table></fieldset> 
+	</div>
+                        </div>
+                        <div style="width: 50%; float: left;">
+                            <div id="MainContent_panLandLine">
+		
+                                <fieldset>
+                                    <legend>Land Line Valuation </legend><table id="MainContent_tblLand">
+			<tr id="MainContent_rowLandAc">
+				<td title="1 Acre = 43560 Square Feet" class="plabel">Size (Acres)</td><td title="1 Acre = 43560 Square Feet" class="data"><span id="MainContent_lblLndAcres">0.33</span></td>
+			</tr><tr id="MainContent_rowLandFrontage">
+				<td class="plabel">Frontage</td><td class="data"><span id="MainContent_lblLndFront">0</span></td>
+			</tr><tr id="MainContent_rowLandDepth">
+				<td class="plabel">Depth</td><td class="data"><span id="MainContent_lblDepth">0</span></td>
+			</tr><tr id="MainContent_rowLandAssess">
+				<td class="plabel">Assessed Value</td><td class="data"><span id="MainContent_lblLndAsmt">$40,110</span></td>
+			</tr><tr id="MainContent_rowLandApprais">
+				<td class="plabel">Appraised Value</td><td class="data"><span id="MainContent_lblLndAppr">$57,300</span></td>
+			</tr>
+		</table></fieldset> 
+	</div></div></fieldset> 
+</div></div></div><div id="tabs-7">
+            <div id="MainContent_panOB">
+	
+                <br />
+                <fieldset>
+                    <legend>Outbuildings</legend><div>
+		<table class="GridViewStyle" cellspacing="0" rules="all" witdh="100%" border="1" id="MainContent_grdOb" width="100%">
+			<caption>
+				Outbuildings
+			</caption><tr class="HeaderStyle">
+				<th scope="col">Code</th><th scope="col">Description</th><th scope="col">Sub Code</th><th scope="col">Sub Description</th><th scope="col">Size</th><th scope="col">Value</th><th scope="col">Bldg #</th>
+			</tr><tr class="RowStyle">
+				<td>PAV1</td><td>PAVING-ASPHALT</td><td>&nbsp;</td><td>&nbsp;</td><td align="right">2000 S.F.</td><td align="right">$4,100</td><td align="right">1</td>
+			</tr>
+		</table>
+	</div>
+                </fieldset>
+                           
+</div><div id="MainContent_panAshHist">
+	
+                <fieldset>
+                    <legend>Valuation History</legend><div>
+		<table class="GridViewStyle" cellspacing="0" rules="all" witdh="100%" border="1" id="MainContent_grdHistoryValuesAppr" width="100%">
+			<caption>
+				Appraisal
+			</caption><tr class="HeaderStyle">
+				<th scope="col">Valuation Year</th><th scope="col">Improvements</th><th scope="col">Land</th><th scope="col">Total</th>
+			</tr><tr class="RowStyle">
+				<td>2016</td><td align="right">$245,900</td><td align="right">$57,300</td><td align="right">$303,200</td>
+			</tr><tr class="AltRowStyle">
+				<td>2015</td><td align="right">$237,800</td><td align="right">$51,400</td><td align="right">$289,200</td>
+			</tr><tr class="RowStyle">
+				<td>2014</td><td align="right">$237,800</td><td align="right">$51,400</td><td align="right">$289,200</td>
+			</tr>
+		</table>
+	</div>
+                    <br />
+                    <div>
+		<table class="GridViewStyle" cellspacing="0" rules="all" witdh="100%" border="1" id="MainContent_grdHistoryValuesAsmt" width="100%">
+			<caption>
+				Assessment
+			</caption><tr class="HeaderStyle">
+				<th scope="col">Valuation Year</th><th scope="col">Improvements</th><th scope="col">Land</th><th scope="col">Total</th>
+			</tr><tr class="RowStyle">
+				<td>2016</td><td align="right">$172,130</td><td align="right">$40,110</td><td align="right">$212,240</td>
+			</tr><tr class="AltRowStyle">
+				<td>2015</td><td align="right">$166,460</td><td align="right">$35,980</td><td align="right">$202,440</td>
+			</tr><tr class="RowStyle">
+				<td>2014</td><td align="right">$166,460</td><td align="right">$35,980</td><td align="right">$202,440</td>
+			</tr>
+		</table>
+	</div>
+                </fieldset>
+                           
+</div>
+                                                        
+                
+                                                
+                                                </div></div><div id="legSubarea">
+        </div><div id="map">
+        <p>All locations identified on Google, Yahoo, and Bing maps are approximate and may not be exact</p><a id="MainContent_lnkGIS" class="button" href="Map.aspx?pid=19248">Go To Vision GIS Map</a><br />
+        <br />
+        <a id="MainContent_lnkGoogle" class="button" href="http://maps.google.com/?q=620 CONGRESS AV NEW HAVEN, CT" target="_blank">Go To Google Maps</a><br />
+        <br />
+        <a id="MainContent_lnkYahoo" class="button" href="http://maps.yahoo.com/#q=620%20CONGRESS%20AV%20NEW%20HAVEN,%20CT" target="_blank">Go To Yahoo Maps</a><br />
+        <br />
+        <a id="MainContent_lnkMicrosoft" class="button" href="http://www.bing.com/maps/?q=620 CONGRESS AV NEW HAVEN, CT" target="_blank">Go To Microsoft Bing Maps</a></div><input type="hidden" name="ctl00$MainContent$hdnPid" id="MainContent_hdnPid" value="19248" />
+    <input type="hidden" name="ctl00$MainContent$hdnShowObLegend" id="hdnShowObLegend" value="Y" />
+    <input type="hidden" name="ctl00$MainContent$hdnShowXfLegend" id="hdnShowXfLegend" value="Y" />
+    <input type="hidden" name="ctl00$MainContent$hdnShowLandLegend" id="hdnShowLandLegend" value="Y" />
+    <input type="hidden" name="ctl00$MainContent$hdnShowSubareaLegend" id="hdnShowSubareaLegend" value="Y" />
+    <input type="hidden" name="ctl00$MainContent$hdnShowPbnLegend" id="hdnShowPbnLegend" value="Y" />
+    <input type="hidden" name="ctl00$MainContent$hdnShowObSubCodes" id="hdnShowObSubCodes" value="Y" />
+    <input type="hidden" name="ctl00$MainContent$hdnShowXfSubCodes" id="hdnShowXfSubCodes" value="N" />
+</span>
+                </div>
+            </div>
+            <div class="clientservices-footer">
+                <div style="background-color:#333366; width: 100%">
+                    <span style="float:right;padding-top:6px; padding-right: 12px;">(c) 2016 Vision Government Solutions, Inc. All rights reserved.</span>
+                </div>    
+            </div>
+    
+        </div>
+        
+       
+     
+      </div>
+        <div class="bottomgraphicX" style="height: 0px;top:-6px;position: relative;">    
+     
+      <img alt="" id="Img1" class="hideMeInPrint" src='/NewHavenCT/Images/pagebottomds2.png' />
+     </div>     
+</div>   
+    </div>
+    <!-- JQuery and UI-->
+    <script src="/NewHavenCT/Scripts/jquery-1.8.3.js"  type="text/javascript"></script>
+    <script src="/NewHavenCT/Scripts/jquery-ui-1.9.2.custom.min.js"  type="text/javascript"></script>
+    <script src="/NewHavenCT/Scripts/bgiframe.js" type="text/javascript"></script>
+   
+<script type="text/javascript">
+    $(document).ready(function () {
+       
+        if ($("#hdnKeepAlive").val() == "Yes") {
+            var i=300000;
+            setInterval(KeepSessionAlive, i);
+        }
+        $("#BackButton").click(function () { history.back(-1); });
+        $('#BackButton').hover(function () {
+            $(this).css('cursor', 'pointer');
+        }, function () {
+            $(this).css('cursor', 'auto');
+        });
+    });
+    function KeepSessionAlive() {
+        $.post('/NewHavenCT/KeepAlive.aspx', null, function () {
+            var x = null;
+         });
+    }
+</script>
+        
+    
+    <script src="Scripts/jquery.tooltip.js" type="text/javascript"></script>
+    <script src="Scripts/thickbox.js" type="text/javascript"></script>
+    <link href="Styles/thickbox.css" rel="stylesheet" type="text/css" media="screen" />
+    <script src="Scripts/ParcelEdit.js" type="text/javascript"></script>
+    <script src="Scripts/Question.js" type="text/javascript"></script>
+    <script src="Scripts/Legend.js" type="text/javascript"></script>
+    <script src="Scripts/json2.js" type="text/javascript"></script>
+    <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function getPasswordClick() {
+            var p = $("#MainContent_hdnPid").val();
+            $("#txtRevPwd").val(getPassword(p));
+            $('#MainContent_adminPwd').dialog('open');
+            //alert();
+        }
+        $(document).ready(function () {
+            var icons = {
+                header: "ui-icon-circle-arrow-e",
+                headerSelected: "ui-icon-circle-arrow-s"
+            };
+            $('#printEnclosure').find('fieldset').each(function (i) {
+                $(this).replaceWith('<div id="convertedfieldset' + i + '">' + $(this).html() + '</div>');
+                $('div#convertedfieldset' + i).css('display', 'inline').css('text-align', 'left');
+            });
+            $('#MainContent_adminPwd').dialog({ autoOpen: false, title: 'Parcel Revision Password', minWidth: 500, maxHeight: 500, show: "blind", hide: "explode" });
+            $('#legend').dialog({ autoOpen: false, title: 'Subarea Code Descriptions', minWidth: 400, maxHeight: 500, show: "blind", hide: "explode" });
+            $("#legSubarea").dialog({ autoOpen: false, title: 'Subarea Code Descriptions', minWidth: 400, maxHeight: 500, show: "blind", hide: "explode" });
+            var c = $("#MainContent_lblMblu").text().replace('/    /   ', '.tif').replace('/    ', '_').replace('/    ', '_');
+            $('#MainContent_aCot').attr('href', 'http://images.vgsi.com/cards/HopkintonRICOT/' + c);
+            $('hoverHelp ui-accordion-header ui-helper-reset ui-state-active ui-corner-top ui-state-focus').tooltip();
+            $(".skecthImage").tooltip();
+            $(".plabel").tooltip();
+            $(".data").tooltip();
+            //$("#accordion").accordion({ collapsible: false, icons: icons });
+            $("#toggle").button().toggle(function () {
+                $("#accordion").accordion("option", "icons", false);
+            }, function () {
+                $("#accordion").accordion("option", "icons", icons);
+            });
+            $(function () {
+                //$("#tabs").tabs();
+            });
+            $("#map").dialog({ autoOpen: false, title: 'Map Links' });
+            //$("caption").addClass("ui-widget-header");
+            $("#askQuestion").dialog({ autoOpen: false, title: 'Ask a Question' }).dialog("option", "width", 700);;
+            $("#MainContent_btnAskQuestion").click(function () { $("#askQuestion").dialog('open'); });
+            //$("#button").button();
+            //$("#showMapLinks").button();
+            $("#showMapLinks").click(function () { $("#map").dialog('open'); });
+            //$("#printButton").button();
+            $("#printButton").click(function () { window.print(); });
+            //$("#editParcel").button();
+            $("#similiarParcelSales").click(function () { window.location.replace("sales.aspx?pid=" + $("#MainContent_hdnPid").val()); });
+            $("#submitIE").click(function () { window.location.replace("IncomeExpense/IncomeAndExpense.aspx?pid=" + $("#MainContent_hdnPid").val()); });
+            //$("#editParcel").button();
+            $("#editParcel").click(function () { window.location.replace("parcelRevision.aspx?pid=" + $("#MainContent_hdnPid").val()); });
+            //$(".tt").tooltip();
+            //$(".propertyCard").button();
+            $(".propertyCard").click(function () { window.open("http://images.vgsi.com/cards/citystCards/301/M301-B0097-L06000-U-.pdf"); });
+            //$("#showLegend").button();
+            $("#showLegend").click(function () {
+                $('#legend').dialog('open');
+                showLegend("OB");
+            });
+            //$("input[type=button]").button();
+            //$(":submit").addClass('ui-button ui-widget');
+            //$("#testGrid").button();
+            $("#testGrid").click(function () {
+                GetLegendFromServerForGrid();
+            });
+            if ($("#hdnShowXfLegend").val() == "Y") {
+                $("#MainContent_grdXf caption").append("<span id='LegendXF' style='float:right;text-decoration:underline;cursor:pointer;'>Legend</span>");
+                $("#LegendXF").click(function () {
+                    $('#legend').dialog("option", "title", "Extra Features");
+                    $('#legend').dialog('open');
+                    showLegend("XF");
+                });
+            }
+            if ($("#hdnShowObLegend").val() == "Y") {
+                $("#MainContent_grdOb caption").append("<span id='LegendOB' style='float:right;text-decoration:underline;cursor:pointer;'>Legend</span>");
+                $("#LegendOB").click(function () {
+                    $('#legend').dialog("option", "title", "Outbuildings");
+                    $('#legend').dialog('open');
+                    showLegend("OB");
+                });
+            }
+            if ($("#hdnShowSubareaLegend").val() == "Y") {
+                $("[id$=grdSub] caption").append("<span class='LegendSub' style='float:right;text-decoration:underline;cursor:pointer;'>Legend</span>");
+                $(".LegendSub").click(function () {
+                    $('#legend').dialog("option", "title", "Subareas Codes");
+                    $('#legend').dialog('open');
+                    showLegend("Subarea");
+                });
+            }
+            if ($("#hdnShowLandLegend").val() == "Y") {
+                //$("[id$=grdSub] caption").append("<span class='LegendLnd' style='float:right;text-decoration:underline;cursor:pointer;'>Legend</span>");
+                $("#LegendLnd").click(function () {
+                    $('#legend').dialog("option", "title", "Land Use Codes");
+                    $('#legend').dialog('open');
+                    showLegend("Land");
+                });
+                $("#LegendLnd2").click(function () {
+                    $('#legend').dialog("option", "title", "Land Use Codes");
+                    $('#legend').dialog('open');
+                    showLegend("Land");
+                });
+            }
+            if ($("#hdnShowPbnLegend").val() == "Y") {
+                var vTitle = $('#MainContent_lblPbnLabel').html();
+                //$("[id$=grdSub] caption").append("<span class='LegendLnd' style='float:right;text-decoration:underline;cursor:pointer;'>Legend</span>");
+                $("#legPbn").click(function () {
+                    $('#legend').dialog("option", "title", vTitle);
+                    $('#legend').dialog('open');
+                    showLegend("PBN");
+                });
+            }
+        });
+    </script>
+    
+    
+              <script type="text/javascript">
+                  var _gaq = _gaq || [];
+                  _gaq.push(['_setAccount', 'UA-37067763-1']);
+                  _gaq.push(['_trackPageview']);
+                  (function () {
+                      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'https://ssl') + '.google-analytics.com/ga.js';
+                      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                  })();
+</script>
+       
+</form>
+</body>
+</html>
